@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="vi">
-<head>
+<!-- Tiệm Nhà Ỉn v1.0.1 · Cập nhật: 2026-04-08 03:03 -->
+<html lang="vi"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#f4a234">
@@ -9,10 +9,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Nhà Ỉn">
 <link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='30' fill='%23161920'/><text y='130' x='90' font-size='110' text-anchor='middle' font-family='serif'>🐷</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'&gt;&lt;rect width='180' height='180' rx='30' fill='%23161920'/&gt;&lt;text y='130' x='90' font-size='110' text-anchor='middle' font-family='serif'&gt;🐷&lt;/text&gt;&lt;/svg&gt;">
 <title>Tiệm Nhà Ỉn — AI Business Agent</title>
-<meta name="app-version" content="1.0.0">
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<meta name="app-version" content="1.0.1">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&amp;family=Playfair+Display:wght@700&amp;display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #0d0f14; --surface: #161920; --surface2: #1e2230; --surface3: #252a3a;
@@ -392,7 +392,7 @@ tr:hover td{background:rgba(255,255,255,.02);}
 <!-- MOBILE HAMBURGER BAR -->
 <div class="mob-hamburger" id="mob-hamburger">
   <button class="hbtn" onclick="mobDrawerOpen()" aria-label="Menu">☰</button>
-  <span class="mob-title" id="mob-current-title">📊 Dashboard</span>
+  <span class="mob-title" id="mob-current-title">🍽️ Gọi món</span>
   <span class="mob-sync-btn" onclick="openSyncSettings()" id="sync-status-mob" title="Đồng bộ">☁️</span>
 </div>
 
@@ -417,11 +417,11 @@ tr:hover td{background:rgba(255,255,255,.02);}
   </div>
 
   <nav class="mob-nav">
-    <div class="mob-nav-item active" data-tab="dashboard" onclick="mobGoTab('dashboard',this)">
+    <div class="mob-nav-item" data-tab="dashboard" onclick="mobGoTab('dashboard',this)">
       <span class="mob-nav-icon">📊</span>
       <span class="mob-nav-label">Dashboard</span>
     </div>
-    <div class="mob-nav-item" data-tab="goimon" onclick="mobGoTab('goimon',this)">
+    <div class="mob-nav-item active" data-tab="goimon" onclick="mobGoTab('goimon',this)">
       <span class="mob-nav-icon">🍽️</span>
       <span class="mob-nav-label">Gọi món (POS)</span>
     </div>
@@ -455,7 +455,7 @@ tr:hover td{background:rgba(255,255,255,.02);}
       <span class="mob-nav-icon">👨‍🍳</span>
       <span class="mob-nav-label">Màn hình Bếp</span>
     </div>
-    <div class="mob-nav-item" id="nav-admin-btn" data-tab="admin" onclick="mobGoTab('admin',this)" style="display:none;">
+    <div class="mob-nav-item" id="nav-admin-btn" data-tab="admin" onclick="mobGoTab('admin',this)" style="">
       <span class="mob-nav-icon">⚙️</span>
       <span class="mob-nav-label">Quản trị</span>
     </div>
@@ -479,32 +479,30 @@ tr:hover td{background:rgba(255,255,255,.02);}
     <p>AI Business Intelligence Agent • Đường 390 - Hà Tây - HP</p>
   </div>
   <div style="display:flex;align-items:center;gap:8px;margin-left:auto;margin-right:8px;">
-    <span id="auth-user-display" style="font-size:11px;color:var(--muted);max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></span>
+    <span id="auth-user-display" style="font-size:11px;color:var(--muted);max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="Phiên tạm — hết hạn ">Admin</span>
     <button onclick="authLogoutMenu()" title="Đăng xuất" style="background:none;border:1px solid var(--border);border-radius:6px;padding:3px 8px;color:var(--muted);cursor:pointer;font-size:11px;">↩ Thoát</button>
-    <div id="sync-status" style="font-size:10px;cursor:pointer;" onclick="openSyncSettings()">
-      <span style="color:var(--muted)">☁️ Chưa cấu hình</span>
-    </div>
+    <div id="sync-status" style="font-size:10px;cursor:pointer;" onclick="openSyncSettings()"><span style="color:var(--green)">☁️ Đã đồng bộ 02:56:33</span></div>
     <button onclick="syncNow()" title="Đồng bộ ngay" style="background:none;border:1px solid var(--border);border-radius:6px;padding:4px 8px;color:var(--muted);cursor:pointer;font-size:11px;white-space:nowrap;">⟳ Sync</button>
     <button onclick="openSyncSettings()" title="Cấu hình đồng bộ" style="background:none;border:none;color:var(--muted);cursor:pointer;font-size:16px;padding:2px 4px;">☁️</button>
   </div>
   <div class="hstats">
     <div class="hstat">
-      <div class="hstat-val" id="h-today" style="color:var(--blue)">0đ</div>
+      <div class="hstat-val" id="h-today" style="color:var(--blue)">2.9tr</div>
       <div class="hstat-lbl">Hôm nay</div>
     </div>
     <div class="hstat">
-      <div class="hstat-val" id="h-profit" style="color:var(--green)">0đ</div>
+      <div class="hstat-val" id="h-profit" style="color: var(--red);">-5.7tr</div>
       <div class="hstat-lbl">LN tháng</div>
     </div>
     <div class="hstat">
-      <div class="hstat-val" id="h-roi" style="color:var(--gold)">60tr</div>
+      <div class="hstat-val" id="h-roi" style="color:var(--gold)">100.7tr</div>
       <div class="hstat-lbl">Vốn còn lại</div>
     </div>
   </div>
 </header>
 
 <div class="tabs">
-  <div class="tab active" data-icon="📊" onclick="goTab('dashboard',this)"><span class="tab-label">Dashboard</span></div>
+  <div class="tab" data-icon="📊" onclick="goTab('dashboard',this)"><span class="tab-label">Dashboard</span></div>
   <div class="tab" data-icon="🍽️" onclick="goTab('goimon',this)"><span class="tab-label">Gọi món</span></div>
   <div class="tab" data-icon="🧾" onclick="goTab('hoadon',this)"><span class="tab-label">Hóa đơn</span></div>
   <div class="tab" data-icon="✏️" onclick="goTab('nhaplieu',this)"><span class="tab-label">Nhập liệu</span></div>
@@ -513,25 +511,25 @@ tr:hover td{background:rgba(255,255,255,.02);}
   <div class="tab" data-icon="🤖" onclick="goTab('agent',this)"><span class="tab-label">AI Cố vấn</span></div>
   <div class="tab" data-icon="🎯" onclick="goTab('chienluoc',this)"><span class="tab-label">Chiến lược</span></div>
   <div class="tab" data-icon="👨‍🍳" onclick="goTab('bep',this)"><span class="tab-label">Bếp</span></div>
-  <div class="tab" id="tab-admin-btn" data-icon="⚙️" onclick="goTab('admin',this)" style="display:none;"><span class="tab-label">Admin</span></div>
+  <div class="tab active" id="tab-admin-btn" data-icon="⚙️" onclick="goTab('admin',this)" style=""><span class="tab-label">Admin</span></div>
   <div class="tab" data-icon="🧪" onclick="goTab('test',this)"><span class="tab-label">Test</span></div>
 </div>
 
 <!-- ========== DASHBOARD ========== -->
-<div id="tab-dashboard" class="content active">
+<div id="tab-dashboard" class="content">
   <div class="g4">
     <div class="card">
       <div class="card-title"><span class="dot" style="background:var(--blue)"></span>Doanh thu hôm nay</div>
-      <div class="bnum b" id="d-today">0đ</div>
-      <div class="bsub">TM: <span id="d-cash">0đ</span> | CK: <span id="d-bank">0đ</span></div>
+      <div class="bnum b" id="d-today">2.895.000đ</div>
+      <div class="bsub">TM: <span id="d-cash">499k</span> | CK: <span id="d-bank">2.4tr</span></div>
       <div class="prog-wrap">
-        <div class="prog-label"><span>Mục tiêu 700k</span><span id="d-today-pct">0%</span></div>
-        <div class="prog-bar"><div class="prog-fill fb" id="d-today-bar" style="width:0%"></div></div>
+        <div class="prog-label"><span>Mục tiêu 700k</span><span id="d-today-pct">100%</span></div>
+        <div class="prog-bar"><div class="prog-fill fb" id="d-today-bar" style="width: 100%;"></div></div>
       </div>
     </div>
     <div class="card">
       <div class="card-title"><span class="dot" style="background:var(--green)"></span>Lợi nhuận tháng</div>
-      <div class="bnum" id="d-profit" style="color:var(--green)">0đ</div>
+      <div class="bnum r" id="d-profit" style="color:var(--green)">-5.744.000đ</div>
       <div class="bsub">Mục tiêu: 5,000,000đ/tháng</div>
       <div class="prog-wrap">
         <div class="prog-label"><span>Tiến độ</span><span id="d-profit-pct">0%</span></div>
@@ -540,7 +538,7 @@ tr:hover td{background:rgba(255,255,255,.02);}
     </div>
     <div class="card">
       <div class="card-title"><span class="dot" style="background:var(--gold)"></span>Thu hồi vốn</div>
-      <div class="bnum gold" id="d-von-con">60,000,000đ</div>
+      <div class="bnum gold" id="d-von-con">100.650.000đ</div>
       <div class="bsub">Vốn ban đầu: 60,000,000đ</div>
       <div class="prog-wrap">
         <div class="prog-label"><span>Đã thu hồi</span><span id="d-von-pct">0%</span></div>
@@ -552,13 +550,13 @@ tr:hover td{background:rgba(255,255,255,.02);}
       <div class="bnum" id="d-hoan-von" style="color:var(--accent)">~∞</div>
       <div class="bsub">Mục tiêu: 8–12 tháng</div>
       <div class="prog-wrap">
-        <div class="prog-label"><span>Ngày có dữ liệu tháng này</span><span id="d-days">0</span></div>
+        <div class="prog-label"><span>Ngày có dữ liệu tháng này</span><span id="d-days">2</span></div>
         <div class="prog-bar"><div class="prog-fill fo" id="d-days-bar" style="width:5%"></div></div>
       </div>
     </div>
   </div>
 
-  <div id="alerts" style="margin-bottom:14px"></div>
+  <div id="alerts" style="margin-bottom:14px"><div class="alert a-ok"><div class="alert-icon">🔥</div><div>Xuất sắc! Hôm nay <strong>2.895.000đ</strong> — vượt mục tiêu cuối tuần!</div></div></div>
 
   <!-- Full-width chart row -->
   <div class="card" style="margin-bottom:14px;">
@@ -572,7 +570,7 @@ tr:hover td{background:rgba(255,255,255,.02);}
       </div>
     </div>
     <div style="position:relative;height:220px;">
-      <canvas id="chart7"></canvas>
+      <canvas id="chart7" style="box-sizing: border-box; display: block; height: 0px; width: 0px;" width="0" height="0"></canvas>
     </div>
   </div>
 
@@ -581,21 +579,21 @@ tr:hover td{background:rgba(255,255,255,.02);}
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-radius:8px;overflow:hidden;background:var(--surface2);margin-bottom:8px;">
         <div style="padding:10px 14px;border-right:1px solid var(--border);">
           <div style="font-size:10px;color:var(--muted);margin-bottom:3px;">💰 Tổng doanh thu</div>
-          <div class="tb" id="s-rev" style="font-size:15px;font-weight:700">0đ</div>
-          <div style="font-size:10px;color:var(--muted);margin-top:3px">TM: <span id="s-cash">0đ</span> · CK: <span id="s-bank">0đ</span></div>
+          <div class="tb" id="s-rev" style="font-size:15px;font-weight:700">2.960.000đ</div>
+          <div style="font-size:10px;color:var(--muted);margin-top:3px">TM: <span id="s-cash">564k</span> · CK: <span id="s-bank">2.4tr</span></div>
         </div>
         <div style="padding:10px 14px;border-right:1px solid var(--border);">
           <div style="font-size:10px;color:var(--muted);margin-bottom:3px;">🏠 Chi phí cố định</div>
-          <div id="s-fixed" style="font-size:15px;font-weight:700">4,300,000đ</div>
+          <div id="s-fixed" style="font-size:15px;font-weight:700">5.779.000đ</div>
         </div>
         <div style="padding:10px 14px;border-right:1px solid var(--border);">
           <div style="font-size:10px;color:var(--muted);margin-bottom:3px;">🛒 NVL · 🏡 Nhà</div>
-          <div class="tr" id="s-var" style="font-size:13px;font-weight:600">0đ</div>
-          <div style="font-size:10px;color:var(--muted);margin-top:2px">Nhà: <span class="tr" id="s-home">0đ</span></div>
+          <div class="tr" id="s-var" style="font-size:13px;font-weight:600">2.495.000đ</div>
+          <div style="font-size:10px;color:var(--muted);margin-top:2px">Nhà: <span class="tr" id="s-home">430.000đ</span></div>
         </div>
         <div style="padding:10px 14px;">
           <div style="font-size:10px;color:var(--muted);margin-bottom:3px;">💎 Lợi nhuận ròng</div>
-          <div id="s-profit" style="font-size:16px;font-weight:800">0đ</div>
+          <div id="s-profit" style="font-size: 16px; font-weight: 800; color: var(--red);">-5.744.000đ</div>
         </div>
       </div>
   </div>
@@ -605,7 +603,112 @@ tr:hover td{background:rgba(255,255,255,.02);}
     <div class="tbl-wrap">
       <table>
         <thead><tr><th>Ngày</th><th>Doanh thu</th><th>TM / CK</th><th>NVL+Nhà</th><th>Lãi gộp</th><th>Ghi chú</th></tr></thead>
-        <tbody id="hist-tb"><tr><td colspan="6" style="color:var(--muted);text-align:center;padding:20px">Chưa có dữ liệu — hãy nhập ở tab Nhập liệu</td></tr></tbody>
+        <tbody id="hist-tb"><tr>
+      <td>2026-04-07 😐</td>
+      <td class="tb">2.895.000đ</td>
+      <td style="font-size:11px;color:var(--muted)">TM:499k / CK:2.4tr</td>
+      <td class="tr">2.9tr</td>
+      <td class="tg">178k</td>
+      <td style="font-size:11px;color:var(--muted)">–</td>
+    </tr><tr>
+      <td>2026-04-05 😐</td>
+      <td class="tb">65.000đ</td>
+      <td style="font-size:11px;color:var(--muted)">TM:65k / CK:0đ</td>
+      <td class="tr">0đ</td>
+      <td class="tr">-157k</td>
+      <td style="font-size:11px;color:var(--muted)">–</td>
+    </tr><tr>
+      <td>2026-03-24 😐</td>
+      <td class="tb">800.000đ</td>
+      <td style="font-size:11px;color:var(--muted)">TM:445k / CK:355k</td>
+      <td class="tr">568k</td>
+      <td class="tg">148k</td>
+      <td style="font-size:11px;color:var(--muted)">–</td>
+    </tr><tr>
+      <td>2026-03-23 😐</td>
+      <td class="tb">286.000đ</td>
+      <td style="font-size:11px;color:var(--muted)">TM:151k / CK:135k</td>
+      <td class="tr">358k</td>
+      <td class="tr">-51k</td>
+      <td style="font-size:11px;color:var(--muted)">–</td>
+    </tr><tr>
+      <td>2026-03-20 😐</td>
+      <td class="tb">1.000.000đ</td>
+      <td style="font-size:11px;color:var(--muted)">TM:1tr / CK:0đ</td>
+      <td class="tr">1.4tr</td>
+      <td class="tr">-226k</td>
+      <td style="font-size:11px;color:var(--muted)">–</td>
+    </tr><tr>
+      <td>2026-03-16 😐</td>
+      <td class="tb">918.000đ</td>
+      <td style="font-size:11px;color:var(--muted)">TM:347k / CK:571k</td>
+      <td class="tr">986k</td>
+      <td class="tg">567k</td>
+      <td style="font-size:11px;color:var(--muted)">–</td>
+    </tr><tr>
+      <td>2026-03-15 😐</td>
+      <td class="tb">105.000đ</td>
+      <td style="font-size:11px;color:var(--muted)">TM:105k / CK:0đ</td>
+      <td class="tr">2.4tr</td>
+      <td class="tr">-1.8tr</td>
+      <td style="font-size:11px;color:var(--muted)">–</td>
+    </tr><tr>
+      <td>2026-03-14 😐</td>
+      <td class="tb">1.207.000đ</td>
+      <td style="font-size:11px;color:var(--muted)">TM:878k / CK:329k</td>
+      <td class="tr">370k</td>
+      <td class="tg">965k</td>
+      <td style="font-size:11px;color:var(--muted)">–</td>
+    </tr><tr>
+      <td>2026-03-13 😐</td>
+      <td class="tb">547.000đ</td>
+      <td style="font-size:11px;color:var(--muted)">TM:437k / CK:110k</td>
+      <td class="tr">2.8tr</td>
+      <td class="tr">-2.5tr</td>
+      <td style="font-size:11px;color:var(--muted)">–</td>
+    </tr><tr>
+      <td>2026-03-12 😐</td>
+      <td class="tb">1.151.000đ</td>
+      <td style="font-size:11px;color:var(--muted)">TM:830k / CK:321k</td>
+      <td class="tr">164k</td>
+      <td class="tg">855k</td>
+      <td style="font-size:11px;color:var(--muted)">–</td>
+    </tr><tr>
+      <td>2026-03-10 😐</td>
+      <td class="tb">120.000đ</td>
+      <td style="font-size:11px;color:var(--muted)">TM:120k / CK:0đ</td>
+      <td class="tr">0đ</td>
+      <td class="tr">-102k</td>
+      <td style="font-size:11px;color:var(--muted)">–</td>
+    </tr><tr>
+      <td>2026-03-09 😐</td>
+      <td class="tb">258.000đ</td>
+      <td style="font-size:11px;color:var(--muted)">TM:258k / CK:0đ</td>
+      <td class="tr">0đ</td>
+      <td class="tg">36k</td>
+      <td style="font-size:11px;color:var(--muted)">–</td>
+    </tr><tr>
+      <td>2026-03-08 😐</td>
+      <td class="tb">524.000đ</td>
+      <td style="font-size:11px;color:var(--muted)">TM:143k / CK:381k</td>
+      <td class="tr">1.9tr</td>
+      <td class="tr">-1.2tr</td>
+      <td style="font-size:11px;color:var(--muted)">–</td>
+    </tr><tr>
+      <td>2026-03-07 😐</td>
+      <td class="tb">2.071.000đ</td>
+      <td style="font-size:11px;color:var(--muted)">TM:390k / CK:1.7tr</td>
+      <td class="tr">1.2tr</td>
+      <td class="tg">1.2tr</td>
+      <td style="font-size:11px;color:var(--muted)">–</td>
+    </tr><tr>
+      <td>2026-03-06 😐</td>
+      <td class="tb">1.360.000đ</td>
+      <td style="font-size:11px;color:var(--muted)">TM:440k / CK:920k</td>
+      <td class="tr">170k</td>
+      <td class="tg">1.1tr</td>
+      <td style="font-size:11px;color:var(--muted)">–</td>
+    </tr></tbody>
       </table>
     </div>
   </div>
@@ -625,11 +728,9 @@ tr:hover td{background:rgba(255,255,255,.02);}
         <div class="field">
           <label>📅 Ngày <span class="required-star">*</span></label>
           <div style="position:relative;">
-            <input type="date" id="i-date"
-              style="width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:7px;padding:8px 12px;color:transparent;font-size:13px;cursor:pointer;outline:none;font-family:inherit;box-sizing:border-box;"
-              onchange="onDateChange(this.value)">
-            <div id="i-date-display" style="position:absolute;inset:0;padding:8px 12px;font-size:13px;font-weight:600;color:var(--text);display:flex;align-items:center;gap:8px;pointer-events:none;">
-              <span id="i-date-text">—</span>
+            <input type="date" id="i-date" style="width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:7px;padding:8px 12px;color:transparent;font-size:13px;cursor:pointer;outline:none;font-family:inherit;box-sizing:border-box;" onchange="onDateChange(this.value)">
+            <div id="i-date-display" style="position: absolute; inset: 0px; padding: 8px 12px; font-size: 13px; font-weight: 600; color: var(--text); display: flex; align-items: center; gap: 8px; pointer-events: none; border-color: var(--accent);">
+              <span id="i-date-text">T3  07/04/2026</span>
             </div>
           </div>
         </div>
@@ -676,7 +777,7 @@ tr:hover td{background:rgba(255,255,255,.02);}
             <span class="cc-arrow" id="arr-card-sp">▼</span>
           </div>
         </div>
-        <div class="cc-body" id="body-card-sp">
+        <div class="cc-body collapsed" id="body-card-sp">
 
           <!-- SECTION: Từ hóa đơn (read-only summary) -->
           <div id="sp-hd-section" style="margin-bottom:12px;">
@@ -743,7 +844,7 @@ tr:hover td{background:rgba(255,255,255,.02);}
             <div class="field"><label>Trà sữa khoai môn kem cheese M <span class="price-tag">30k</span></label><input type="number" id="i-tra-km-cheese-m" placeholder="0" oninput="calcSP()"></div>
             <div class="field"><label>Trà sữa khoai môn kem cheese L <span class="price-tag">35k</span></label><input type="number" id="i-tra-km-cheese-l" placeholder="0" oninput="calcSP()"></div>
           </div>
-          <div style="font-size:10px;color:var(--muted);margin-bottom:5px;">Sữa tươi & Sữa chua lắc</div>
+          <div style="font-size:10px;color:var(--muted);margin-bottom:5px;">Sữa tươi &amp; Sữa chua lắc</div>
           <div class="fg2" style="margin-bottom:8px;">
             <div class="field"><label>Sữa tươi kem trứng dừa M <span class="price-tag">35k</span></label><input type="number" id="i-sua-m" placeholder="0" oninput="calcSP()"></div>
             <div class="field"><label>Sữa tươi kem trứng dừa L <span class="price-tag">40k</span></label><input type="number" id="i-sua-l" placeholder="0" oninput="calcSP()"></div>
@@ -777,7 +878,7 @@ tr:hover td{background:rgba(255,255,255,.02);}
             <div class="field"><label>Sữa chua lắc (loại khác) L <span class="price-tag">35k</span></label><input type="number" id="i-sca-l" placeholder="0" oninput="calcSP()"></div>
           </div>
           <div class="sp-group-header" style="background:rgba(46,204,138,.1);border:1px solid rgba(46,204,138,.25);border-radius:8px;padding:7px 12px;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;">
-            <span style="font-weight:700;font-size:12px;">🥤 Sinh tố & Nước ép</span>
+            <span style="font-weight:700;font-size:12px;">🥤 Sinh tố &amp; Nước ép</span>
             <strong id="sp-sub-sinhtо" style="color:var(--green);font-size:12px">0đ</strong>
           </div>
           <div style="font-size:10px;color:var(--muted);margin-bottom:5px;">Sinh tố (30k M / 35k L)</div>
@@ -898,7 +999,7 @@ tr:hover td{background:rgba(255,255,255,.02);}
 
           <!-- MỲ CAY -->
           <div class="sp-group-header" style="background:rgba(169,126,244,.1);border:1px solid rgba(169,126,244,.25);border-radius:8px;padding:7px 12px;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;">
-            <span style="font-weight:700;font-size:12px;">🌶️ Mỳ cay & Bánh</span>
+            <span style="font-weight:700;font-size:12px;">🌶️ Mỳ cay &amp; Bánh</span>
             <strong id="sp-sub-my" style="color:var(--purple);font-size:12px">0đ</strong>
           </div>
           <div class="fg2" style="margin-bottom:8px;">
@@ -962,14 +1063,14 @@ tr:hover td{background:rgba(255,255,255,.02);}
               <span class="cc-arrow" id="arr-card-nvl">▼</span>
             </div>
           </div>
-          <div class="cc-body" id="body-card-nvl">
-            <div style="font-size:10px;color:var(--muted);margin-bottom:5px;">🍗 Gà & Thực phẩm</div>
+          <div class="cc-body collapsed" id="body-card-nvl">
+            <div style="font-size:10px;color:var(--muted);margin-bottom:5px;">🍗 Gà &amp; Thực phẩm</div>
             <div class="fg3" style="margin-bottom:8px;">
               <div class="field"><label>Gà</label><input type="number" id="c-ga" placeholder="0" oninput="calcNVLTotal()"></div>
               <div class="field"><label>Đồ chiên + Xúc xích</label><input type="number" id="c-chien" placeholder="0" oninput="calcNVLTotal()"></div>
               <div class="field"><label>Dầu ăn</label><input type="number" id="c-dau" placeholder="0" oninput="calcNVLTotal()"></div>
             </div>
-            <div style="font-size:10px;color:var(--muted);margin-bottom:5px;">🧋 Đồ pha chế & Nguyên liệu</div>
+            <div style="font-size:10px;color:var(--muted);margin-bottom:5px;">🧋 Đồ pha chế &amp; Nguyên liệu</div>
             <div class="fg3" style="margin-bottom:8px;">
               <div class="field"><label>Đồ pha chế</label><input type="number" id="c-phache" placeholder="0" oninput="calcNVLTotal()"></div>
               <div class="field"><label>Đá</label><input type="number" id="c-da" placeholder="0" oninput="calcNVLTotal()"></div>
@@ -988,7 +1089,7 @@ tr:hover td{background:rgba(255,255,255,.02);}
               <div class="field"><label>Gia vị mỳ cay</label><input type="number" id="c-giavi-my" placeholder="0" oninput="calcNVLTotal()"></div>
               <div class="field"><label>Topping mỳ (thịt, rau...)</label><input type="number" id="c-topping-my" placeholder="0" oninput="calcNVLTotal()"></div>
             </div>
-            <div style="font-size:10px;color:var(--muted);margin-bottom:5px;">📦 Bao bì & Chi phí khác</div>
+            <div style="font-size:10px;color:var(--muted);margin-bottom:5px;">📦 Bao bì &amp; Chi phí khác</div>
             <div class="fg2">
               <div class="field"><label>Bao bì, túi, cốc</label><input type="number" id="c-baobì" placeholder="0" oninput="calcNVLTotal()"></div>
               <div class="field"><label>Chi phí khác - Quán</label><input type="number" id="c-khac-quan" placeholder="0" oninput="calcNVLTotal()"></div>
@@ -1010,7 +1111,7 @@ tr:hover td{background:rgba(255,255,255,.02);}
               <span class="cc-arrow" id="arr-card-nha">▼</span>
             </div>
           </div>
-          <div class="cc-body" id="body-card-nha">
+          <div class="cc-body collapsed" id="body-card-nha">
             <div class="fg3" style="margin-bottom:8px;">
               <div class="field"><label>🍚 Ăn uống</label><input type="number" id="h-food" placeholder="0" oninput="calcHome()"></div>
               <div class="field"><label>⛽ Đổ xăng</label><input type="number" id="h-xang" placeholder="0" oninput="calcHome()"></div>
@@ -1029,7 +1130,7 @@ tr:hover td{background:rgba(255,255,255,.02);}
           <div class="cc-header" onclick="toggleCard('card-save')">
             <div style="display:flex;align-items:center;gap:8px;">
               <span>📝</span>
-              <span class="cc-title">Ghi chú & Lưu</span>
+              <span class="cc-title">Ghi chú &amp; Lưu</span>
             </div>
             <span class="cc-arrow" id="arr-card-save">▼</span>
           </div>
@@ -1203,9 +1304,9 @@ tr:hover td{background:rgba(255,255,255,.02);}
       <div class="card-title" style="justify-content:center;"><span class="dot" style="background:var(--gold)"></span>Thu hồi vốn</div>
       <div class="roi-ring">
         <svg viewBox="0 0 110 110" width="110" height="110">
-          <defs><linearGradient id="rg" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#f0c040"/><stop offset="100%" style="stop-color:#f4a234"/></linearGradient></defs>
-          <circle class="bg" cx="55" cy="55" r="45" stroke="var(--surface3)"/>
-          <circle id="roi-c" cx="55" cy="55" r="45" stroke="url(#rg)" stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="283"/>
+          <defs><linearGradient id="rg" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#f0c040"></stop><stop offset="100%" style="stop-color:#f4a234"></stop></linearGradient></defs>
+          <circle class="bg" cx="55" cy="55" r="45" stroke="var(--surface3)"></circle>
+          <circle id="roi-c" cx="55" cy="55" r="45" stroke="url(#rg)" stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="283"></circle>
         </svg>
         <div class="roi-lbl"><div class="big" id="roi-pct">0%</div><div class="sm">đã thu hồi</div></div>
       </div>
@@ -1335,14 +1436,14 @@ tr:hover td{background:rgba(255,255,255,.02);}
           <span class="badge bg-o" style="font-size:9px">Có phí</span>
         </label>
         <div style="margin-left:auto;display:flex;align-items:center;gap:8px;flex:1;min-width:200px;">
-          <input type="password" id="ai-key-input" placeholder="Nhập API key..." 
-            style="flex:1;background:var(--surface3);border:1px solid var(--border);border-radius:6px;padding:5px 10px;color:var(--text);font-size:12px;font-family:inherit;outline:none;min-width:0;"
-            oninput="saveKey()">
-          <a id="ai-key-link" href="https://aistudio.google.com/app/apikey" target="_blank"
-            style="font-size:10px;color:var(--blue);white-space:nowrap;text-decoration:none;">Lấy key →</a>
+          <input type="password" id="ai-key-input" placeholder="Nhập Gemini API key..." style="flex:1;background:var(--surface3);border:1px solid var(--border);border-radius:6px;padding:5px 10px;color:var(--text);font-size:12px;font-family:inherit;outline:none;min-width:0;" oninput="saveKey()">
+          <a id="ai-key-link" href="https://aistudio.google.com/app/apikey" target="_blank" style="font-size:10px;color:var(--blue);white-space:nowrap;text-decoration:none;">Lấy Gemini key miễn phí →</a>
         </div>
       </div>
-      <div id="ai-status" style="font-size:11px;color:var(--muted);margin-top:6px;">Chọn nhà cung cấp AI và nhập API key để bắt đầu</div>
+      <div id="ai-status" style="font-size:11px;color:var(--muted);margin-top:6px;">⚠️ Đang chạy từ file local — AI cần chạy qua server. 
+          <strong>Cách đơn giản nhất:</strong> 
+          <a href="#" onclick="openViaDataURL()" style="color:var(--blue)">Mở qua trình duyệt Chrome</a> 
+          hoặc dùng <a href="https://tiemnhain.netlify.app" target="_blank" style="color:var(--green)">phiên bản online</a></div>
     </div>
     <div class="msgs" id="msgs">
       <div class="msg ai">
@@ -1396,7 +1497,7 @@ tr:hover td{background:rgba(255,255,255,.02);}
       <div class="sc-impact">📈 Tác động: +2–3tr/tháng</div>
     </div>
     <div class="sc s4">
-      <div class="sc-title">📦 Kiểm soát chi phí Nhà & NVL</div>
+      <div class="sc-title">📦 Kiểm soát chi phí Nhà &amp; NVL</div>
       <div class="sc-desc">Dữ liệu tháng 4 cho thấy chi phí Nhà (ăn uống, xăng xe) cộng dồn đáng kể. Mua gà sỉ theo tuần để được giá tốt hơn. Dự báo nhu cầu theo ngày để tránh lãng phí đá, dầu, khoai.<br><br><strong>Tính:</strong> Tiết kiệm 10% NVL = ~500-900k/tháng</div>
       <div class="sc-impact">💰 Tiết kiệm: 0.5–1tr/tháng</div>
     </div>
@@ -1524,12 +1625,9 @@ tr:hover td{background:rgba(255,255,255,.02);}
     <div class="hd-menu-top">
       <div class="hd-search-wrap" id="hd-search-wrap" style="margin-bottom:0;">
         <span class="hd-search-icon">🔍</span>
-        <input type="text" class="hd-search-input" id="hd-search-input"
-          placeholder="Tìm: ts, scl, nem, khoai, dgl..."
-          oninput="hdSearch(this.value)" onkeydown="hdSearchKey(event)"
-          autocomplete="off" spellcheck="false">
+        <input type="text" class="hd-search-input" id="hd-search-input" placeholder="Tìm: ts, scl, nem, khoai, dgl..." oninput="hdSearch(this.value)" onkeydown="hdSearchKey(event)" autocomplete="off" spellcheck="false">
         <button class="hd-search-clear" id="hd-search-clear" onclick="hdSearchClear()">✕</button>
-        <div class="hd-search-results" id="hd-search-results"></div>
+        <div class="hd-search-results" id="hd-search-results" style="display: none;"></div>
       </div>
     </div>
 
@@ -1580,7 +1678,7 @@ tr:hover td{background:rgba(255,255,255,.02);}
         </div>
       </div>
       <!-- JS-rendered menu grid -->
-      <div id="hd-menu-grid"></div>
+      <div id="hd-menu-grid"><div class="hd-menu-cat"><div class="hd-cat-toggle" onclick="hdToggleCat('hdc-0')"><span>🍗 Gà</span><span class="hd-cat-arrow open" id="hdc-arr-0">▼</span></div><div class="hd-cat-body" id="hdc-0" style="max-height: none;"><div class="hd-items"><div class="hd-item" onclick="hdAdd('Đùi gà lớn',35000)"><span class="iname">Đùi gà lớn</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Đùi gà nhỏ',30000)"><span class="iname">Đùi gà nhỏ</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Cánh gà lớn',30000)"><span class="iname">Cánh gà lớn</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Cánh gà nhỏ',25000)"><span class="iname">Cánh gà nhỏ</span><span class="iprice">25.000đ</span></div><div class="hd-item" onclick="hdAdd('Xôi gà nấm',10000)"><span class="iname">Xôi gà nấm</span><span class="iprice">10.000đ</span></div></div></div></div><div class="hd-menu-cat"><div class="hd-cat-toggle" onclick="hdToggleCat('hdc-1')"><span>🧋 Trà sữa 25k</span><span class="hd-cat-arrow open" id="hdc-arr-1">▼</span></div><div class="hd-cat-body" id="hdc-1" style="max-height: none;"><div class="hd-items"><div class="hd-item" onclick="hdAdd('Trà sữa truyền thống M',25000)"><span class="iname">Trà sữa truyền thống M</span><span class="iprice">25.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà sữa truyền thống L',30000)"><span class="iname">Trà sữa truyền thống L</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà sữa Trân châu ĐĐ M',25000)"><span class="iname">Trà sữa Trân châu ĐĐ M</span><span class="iprice">25.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà sữa Trân châu ĐĐ L',30000)"><span class="iname">Trà sữa Trân châu ĐĐ L</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà sữa Matcha M',25000)"><span class="iname">Trà sữa Matcha M</span><span class="iprice">25.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà sữa Matcha L',30000)"><span class="iname">Trà sữa Matcha L</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà sữa Khoai môn M',25000)"><span class="iname">Trà sữa Khoai môn M</span><span class="iprice">25.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà sữa Khoai môn L',30000)"><span class="iname">Trà sữa Khoai môn L</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà sữa Socola M',25000)"><span class="iname">Trà sữa Socola M</span><span class="iprice">25.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà sữa Socola L',30000)"><span class="iname">Trà sữa Socola L</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà sữa Dâu M',25000)"><span class="iname">Trà sữa Dâu M</span><span class="iprice">25.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà sữa Dâu L',30000)"><span class="iname">Trà sữa Dâu L</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà sữa Bạc hà M',25000)"><span class="iname">Trà sữa Bạc hà M</span><span class="iprice">25.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà sữa Bạc hà L',30000)"><span class="iname">Trà sữa Bạc hà L</span><span class="iprice">30.000đ</span></div></div></div></div><div class="hd-menu-cat"><div class="hd-cat-toggle" onclick="hdToggleCat('hdc-2')"><span>🧋 Trà sữa 30k</span><span class="hd-cat-arrow open" id="hdc-arr-2">▼</span></div><div class="hd-cat-body" id="hdc-2" style="max-height: none;"><div class="hd-items"><div class="hd-item" onclick="hdAdd('Trà sữa Full Topping - Xô',55000)"><span class="iname">Trà sữa Full Topping - Xô</span><span class="iprice">55.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà sữa Topping M',39000)"><span class="iname">Trà sữa Topping M</span><span class="iprice">39.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà sữa Topping L',49000)"><span class="iname">Trà sữa Topping L</span><span class="iprice">49.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà sữa kem trứng dừa nướng M',30000)"><span class="iname">Trà sữa kem trứng dừa nướng M</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà sữa kem trứng dừa nướng L',35000)"><span class="iname">Trà sữa kem trứng dừa nướng L</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà sữa kem cheese M',30000)"><span class="iname">Trà sữa kem cheese M</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà sữa kem cheese L',35000)"><span class="iname">Trà sữa kem cheese L</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà sữa kem dẻo matcha M',30000)"><span class="iname">Trà sữa kem dẻo matcha M</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà sữa kem dẻo matcha L',35000)"><span class="iname">Trà sữa kem dẻo matcha L</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà sữa khoai môn kem cheese M',30000)"><span class="iname">Trà sữa khoai môn kem cheese M</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà sữa khoai môn kem cheese L',35000)"><span class="iname">Trà sữa khoai môn kem cheese L</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà sữa sốt khoai môn M',30000)"><span class="iname">Trà sữa sốt khoai môn M</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà sữa sốt khoai môn L',35000)"><span class="iname">Trà sữa sốt khoai môn L</span><span class="iprice">35.000đ</span></div></div></div></div><div class="hd-menu-cat"><div class="hd-cat-toggle" onclick="hdToggleCat('hdc-3')"><span>🥛 Sữa tươi &amp; Latte</span><span class="hd-cat-arrow open" id="hdc-arr-3">▼</span></div><div class="hd-cat-body" id="hdc-3" style="max-height: none;"><div class="hd-items"><div class="hd-item" onclick="hdAdd('Sữa tươi kem trứng dừa M',35000)"><span class="iname">Sữa tươi kem trứng dừa M</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Sữa tươi kem trứng dừa L',40000)"><span class="iname">Sữa tươi kem trứng dừa L</span><span class="iprice">40.000đ</span></div><div class="hd-item" onclick="hdAdd('Sữa tươi trân châu ĐĐ M',30000)"><span class="iname">Sữa tươi trân châu ĐĐ M</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Sữa tươi trân châu ĐĐ L',35000)"><span class="iname">Sữa tươi trân châu ĐĐ L</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Matcha Latte kem trứng M',35000)"><span class="iname">Matcha Latte kem trứng M</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Matcha Latte kem trứng L',40000)"><span class="iname">Matcha Latte kem trứng L</span><span class="iprice">40.000đ</span></div><div class="hd-item" onclick="hdAdd('Matcha Latte kem dẻo M',35000)"><span class="iname">Matcha Latte kem dẻo M</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Matcha Latte kem dẻo L',40000)"><span class="iname">Matcha Latte kem dẻo L</span><span class="iprice">40.000đ</span></div><div class="hd-item" onclick="hdAdd('Matcha Latte kem muối M',35000)"><span class="iname">Matcha Latte kem muối M</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Matcha Latte kem muối L',40000)"><span class="iname">Matcha Latte kem muối L</span><span class="iprice">40.000đ</span></div><div class="hd-item" onclick="hdAdd('Matcha Latte M',30000)"><span class="iname">Matcha Latte M</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Matcha Latte L',35000)"><span class="iname">Matcha Latte L</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Khoai môn Latte M',30000)"><span class="iname">Khoai môn Latte M</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Khoai môn Latte L',35000)"><span class="iname">Khoai môn Latte L</span><span class="iprice">35.000đ</span></div></div></div></div><div class="hd-menu-cat"><div class="hd-cat-toggle" onclick="hdToggleCat('hdc-4')"><span>🫙 Sữa chua lắc</span><span class="hd-cat-arrow open" id="hdc-arr-4">▼</span></div><div class="hd-cat-body" id="hdc-4" style="max-height: none;"><div class="hd-items"><div class="hd-item" onclick="hdAdd('Sữa chua lắc Việt quất M',30000)"><span class="iname">Sữa chua lắc Việt quất M</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Sữa chua lắc Việt quất L',35000)"><span class="iname">Sữa chua lắc Việt quất L</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Sữa chua lắc Xoài M',30000)"><span class="iname">Sữa chua lắc Xoài M</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Sữa chua lắc Xoài L',35000)"><span class="iname">Sữa chua lắc Xoài L</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Sữa chua lắc Dâu M',30000)"><span class="iname">Sữa chua lắc Dâu M</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Sữa chua lắc Dâu L',35000)"><span class="iname">Sữa chua lắc Dâu L</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Sữa chua lắc Đào M',30000)"><span class="iname">Sữa chua lắc Đào M</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Sữa chua lắc Đào L',35000)"><span class="iname">Sữa chua lắc Đào L</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Sữa chua lắc Chanh leo M',30000)"><span class="iname">Sữa chua lắc Chanh leo M</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Sữa chua lắc Chanh leo L',35000)"><span class="iname">Sữa chua lắc Chanh leo L</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Hoa quả dầm sữa chua M',30000)"><span class="iname">Hoa quả dầm sữa chua M</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Hoa quả dầm sữa chua L',35000)"><span class="iname">Hoa quả dầm sữa chua L</span><span class="iprice">35.000đ</span></div></div></div></div><div class="hd-menu-cat"><div class="hd-cat-toggle" onclick="hdToggleCat('hdc-5')"><span>🥤 Sinh tố</span><span class="hd-cat-arrow open" id="hdc-arr-5">▼</span></div><div class="hd-cat-body" id="hdc-5" style="max-height: none;"><div class="hd-items"><div class="hd-item" onclick="hdAdd('Sinh tố Mãng cầu M',30000)"><span class="iname">Sinh tố Mãng cầu M</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Sinh tố Mãng cầu L',35000)"><span class="iname">Sinh tố Mãng cầu L</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Sinh tố Xoài M',30000)"><span class="iname">Sinh tố Xoài M</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Sinh tố Xoài L',35000)"><span class="iname">Sinh tố Xoài L</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Sinh tố Việt quất M',30000)"><span class="iname">Sinh tố Việt quất M</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Sinh tố Việt quất L',35000)"><span class="iname">Sinh tố Việt quất L</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Sinh tố Bơ M',30000)"><span class="iname">Sinh tố Bơ M</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Sinh tố Bơ L',35000)"><span class="iname">Sinh tố Bơ L</span><span class="iprice">35.000đ</span></div></div></div></div><div class="hd-menu-cat"><div class="hd-cat-toggle" onclick="hdToggleCat('hdc-6')"><span>🍹 Nước ép</span><span class="hd-cat-arrow open" id="hdc-arr-6">▼</span></div><div class="hd-cat-body" id="hdc-6" style="max-height: none;"><div class="hd-items"><div class="hd-item" onclick="hdAdd('Nước ép Dưa hấu M',30000)"><span class="iname">Nước ép Dưa hấu M</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Nước ép Dưa hấu L',35000)"><span class="iname">Nước ép Dưa hấu L</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Nước ép Cam M',30000)"><span class="iname">Nước ép Cam M</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Nước ép Cam L',35000)"><span class="iname">Nước ép Cam L</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Nước ép Cà rốt M',30000)"><span class="iname">Nước ép Cà rốt M</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Nước ép Cà rốt L',35000)"><span class="iname">Nước ép Cà rốt L</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Nước ép Ổi M',30000)"><span class="iname">Nước ép Ổi M</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Nước ép Ổi L',35000)"><span class="iname">Nước ép Ổi L</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Nước ép Dứa M',30000)"><span class="iname">Nước ép Dứa M</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Nước ép Dứa L',35000)"><span class="iname">Nước ép Dứa L</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Nước ép Táo M',30000)"><span class="iname">Nước ép Táo M</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Nước ép Táo L',35000)"><span class="iname">Nước ép Táo L</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Nước ép Mix M',30000)"><span class="iname">Nước ép Mix M</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Nước ép Mix L',35000)"><span class="iname">Nước ép Mix L</span><span class="iprice">35.000đ</span></div></div></div></div><div class="hd-menu-cat"><div class="hd-cat-toggle" onclick="hdToggleCat('hdc-7')"><span>🍵 Trà trái cây</span><span class="hd-cat-arrow open" id="hdc-arr-7">▼</span></div><div class="hd-cat-body" id="hdc-7" style="max-height: none;"><div class="hd-items"><div class="hd-item" onclick="hdAdd('Trà mãng cầu M',30000)"><span class="iname">Trà mãng cầu M</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà mãng cầu L',35000)"><span class="iname">Trà mãng cầu L</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà đào cam sả M',30000)"><span class="iname">Trà đào cam sả M</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà đào cam sả L',35000)"><span class="iname">Trà đào cam sả L</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà xoài đào kem cheese M',30000)"><span class="iname">Trà xoài đào kem cheese M</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà xoài đào kem cheese L',35000)"><span class="iname">Trà xoài đào kem cheese L</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà dâu M',25000)"><span class="iname">Trà dâu M</span><span class="iprice">25.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà dâu L',30000)"><span class="iname">Trà dâu L</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà ổi hồng M',25000)"><span class="iname">Trà ổi hồng M</span><span class="iprice">25.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà ổi hồng L',30000)"><span class="iname">Trà ổi hồng L</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà chanh leo M',25000)"><span class="iname">Trà chanh leo M</span><span class="iprice">25.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà chanh leo L',30000)"><span class="iname">Trà chanh leo L</span><span class="iprice">30.000đ</span></div></div></div></div><div class="hd-menu-cat"><div class="hd-cat-toggle" onclick="hdToggleCat('hdc-8')"><span>🍋 Trà chanh &amp; Tắc</span><span class="hd-cat-arrow open" id="hdc-arr-8">▼</span></div><div class="hd-cat-body" id="hdc-8" style="max-height: none;"><div class="hd-items"><div class="hd-item" onclick="hdAdd('Trà chanh M',10000)"><span class="iname">Trà chanh M</span><span class="iprice">10.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà chanh L',15000)"><span class="iname">Trà chanh L</span><span class="iprice">15.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà tắc M',10000)"><span class="iname">Trà tắc M</span><span class="iprice">10.000đ</span></div><div class="hd-item" onclick="hdAdd('Trà tắc L',15000)"><span class="iname">Trà tắc L</span><span class="iprice">15.000đ</span></div></div></div></div><div class="hd-menu-cat"><div class="hd-cat-toggle" onclick="hdToggleCat('hdc-9')"><span>🧃 Soda</span><span class="hd-cat-arrow open" id="hdc-arr-9">▼</span></div><div class="hd-cat-body" id="hdc-9" style="max-height: none;"><div class="hd-items"><div class="hd-item" onclick="hdAdd('Soda Dâu M',25000)"><span class="iname">Soda Dâu M</span><span class="iprice">25.000đ</span></div><div class="hd-item" onclick="hdAdd('Soda Dâu L',30000)"><span class="iname">Soda Dâu L</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Soda Bạc hà M',25000)"><span class="iname">Soda Bạc hà M</span><span class="iprice">25.000đ</span></div><div class="hd-item" onclick="hdAdd('Soda Bạc hà L',30000)"><span class="iname">Soda Bạc hà L</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Soda Việt quất M',25000)"><span class="iname">Soda Việt quất M</span><span class="iprice">25.000đ</span></div><div class="hd-item" onclick="hdAdd('Soda Việt quất L',30000)"><span class="iname">Soda Việt quất L</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Soda Blue M',25000)"><span class="iname">Soda Blue M</span><span class="iprice">25.000đ</span></div><div class="hd-item" onclick="hdAdd('Soda Blue L',30000)"><span class="iname">Soda Blue L</span><span class="iprice">30.000đ</span></div></div></div></div><div class="hd-menu-cat"><div class="hd-cat-toggle" onclick="hdToggleCat('hdc-10')"><span>🍡 Topping</span><span class="hd-cat-arrow open" id="hdc-arr-10">▼</span></div><div class="hd-cat-body" id="hdc-10" style="max-height: none;"><div class="hd-items"><div class="hd-item" onclick="hdAdd('Kem cheese',5000)"><span class="iname">Kem cheese</span><span class="iprice">5.000đ</span></div><div class="hd-item" onclick="hdAdd('Kem muối',5000)"><span class="iname">Kem muối</span><span class="iprice">5.000đ</span></div><div class="hd-item" onclick="hdAdd('Kem trứng',5000)"><span class="iname">Kem trứng</span><span class="iprice">5.000đ</span></div><div class="hd-item" onclick="hdAdd('Kem dẻo',5000)"><span class="iname">Kem dẻo</span><span class="iprice">5.000đ</span></div><div class="hd-item" onclick="hdAdd('Pudding',8000)"><span class="iname">Pudding</span><span class="iprice">8.000đ</span></div><div class="hd-item" onclick="hdAdd('Trân châu trắng',5000)"><span class="iname">Trân châu trắng</span><span class="iprice">5.000đ</span></div></div></div></div><div class="hd-menu-cat"><div class="hd-cat-toggle" onclick="hdToggleCat('hdc-11')"><span>🍟 Chiên &amp; Ăn nhẹ</span><span class="hd-cat-arrow open" id="hdc-arr-11">▼</span></div><div class="hd-cat-body" id="hdc-11" style="max-height: none;"><div class="hd-items"><div class="hd-item" onclick="hdAdd('Khoai tây chiên',30000)"><span class="iname">Khoai tây chiên</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Khoai tây lắc phomai',35000)"><span class="iname">Khoai tây lắc phomai</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Nem chua rán',35000)"><span class="iname">Nem chua rán</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Khoai lang kén',30000)"><span class="iname">Khoai lang kén</span><span class="iprice">30.000đ</span></div><div class="hd-item" onclick="hdAdd('Kimbap chiên',35000)"><span class="iname">Kimbap chiên</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Khoai môn lệ phố',12000)"><span class="iname">Khoai môn lệ phố</span><span class="iprice">12.000đ</span></div><div class="hd-item" onclick="hdAdd('Hotdog hoa tuyết',15000)"><span class="iname">Hotdog hoa tuyết</span><span class="iprice">15.000đ</span></div><div class="hd-item" onclick="hdAdd('Hotdog phomai',15000)"><span class="iname">Hotdog phomai</span><span class="iprice">15.000đ</span></div><div class="hd-item" onclick="hdAdd('Phomai que',8000)"><span class="iname">Phomai que</span><span class="iprice">8.000đ</span></div><div class="hd-item" onclick="hdAdd('Xúc xích lốc xoáy',10000)"><span class="iname">Xúc xích lốc xoáy</span><span class="iprice">10.000đ</span></div><div class="hd-item" onclick="hdAdd('Xúc xích',7000)"><span class="iname">Xúc xích</span><span class="iprice">7.000đ</span></div><div class="hd-item" onclick="hdAdd('Lạp xưởng',7000)"><span class="iname">Lạp xưởng</span><span class="iprice">7.000đ</span></div><div class="hd-item" onclick="hdAdd('Cá viên chiên',7000)"><span class="iname">Cá viên chiên</span><span class="iprice">7.000đ</span></div></div></div></div><div class="hd-menu-cat"><div class="hd-cat-toggle" onclick="hdToggleCat('hdc-12')"><span>🌶️ Mỳ cay</span><span class="hd-cat-arrow open" id="hdc-arr-12">▼</span></div><div class="hd-cat-body" id="hdc-12" style="max-height: none;"><div class="hd-items"><div class="hd-item" onclick="hdAdd('Mỳ cay bò',40000)"><span class="iname">Mỳ cay bò</span><span class="iprice">40.000đ</span></div><div class="hd-item" onclick="hdAdd('Mỳ cay xúc xích',35000)"><span class="iname">Mỳ cay xúc xích</span><span class="iprice">35.000đ</span></div><div class="hd-item" onclick="hdAdd('Mỳ cay bò xúc xích',45000)"><span class="iname">Mỳ cay bò xúc xích</span><span class="iprice">45.000đ</span></div><div class="hd-item" onclick="hdAdd('Mỳ cay thập cẩm',50000)"><span class="iname">Mỳ cay thập cẩm</span><span class="iprice">50.000đ</span></div><div class="hd-item" onclick="hdAdd('Bánh Gối',10000)"><span class="iname">Bánh Gối</span><span class="iprice">10.000đ</span></div><div class="hd-item" onclick="hdAdd('Bánh tôm',15000)"><span class="iname">Bánh tôm</span><span class="iprice">15.000đ</span></div></div></div></div><div class="hd-menu-cat"><div class="hd-cat-toggle" onclick="hdToggleCat('hdc-13')"><span>🎁 Combo</span><span class="hd-cat-arrow open" id="hdc-arr-13">▼</span></div><div class="hd-cat-body" id="hdc-13" style="max-height: none;"><div class="hd-items"><div class="hd-item" onclick="hdAdd('Combo AV1',59000)"><span class="iname">Combo AV1</span><span class="iprice">59.000đ</span></div><div class="hd-item" onclick="hdAdd('Combo AV2',109000)"><span class="iname">Combo AV2</span><span class="iprice">109.000đ</span></div><div class="hd-item" onclick="hdAdd('Combo AV3',159000)"><span class="iname">Combo AV3</span><span class="iprice">159.000đ</span></div><div class="hd-item" onclick="hdAdd('Combo Gà 1',45000)"><span class="iname">Combo Gà 1</span><span class="iprice">45.000đ</span></div><div class="hd-item" onclick="hdAdd('Combo Gà 2',109000)"><span class="iname">Combo Gà 2</span><span class="iprice">109.000đ</span></div><div class="hd-item" onclick="hdAdd('Combo Gà 3',159000)"><span class="iname">Combo Gà 3</span><span class="iprice">159.000đ</span></div></div></div></div></div>
     </div>
   </div>
 
@@ -1590,7 +1688,7 @@ tr:hover td{background:rgba(255,255,255,.02);}
       <div style="display:flex;justify-content:space-between;align-items:flex-start;">
         <div>
           <div class="hd-bill-title">🧾 Tiệm Nhà Ỉn</div>
-          <div class="hd-bill-time" id="hd-time">--</div>
+          <div class="hd-bill-time" id="hd-time">T4 08/04/2026  03:03:28</div>
         </div>
         <div style="text-align:right;">
           <div style="font-size:11px;color:var(--muted);">Hóa đơn #<span id="hd-num">1</span></div>
@@ -1615,7 +1713,7 @@ tr:hover td{background:rgba(255,255,255,.02);}
         </div>
         <div style="display:flex;gap:6px;margin-bottom:6px;flex-wrap:wrap;">
           <label style="display:flex;align-items:center;gap:5px;font-size:12px;cursor:pointer;">
-            <input type="radio" name="hd-pay" value="cash" checked style="accent-color:var(--accent)"> 💵 Tiền mặt
+            <input type="radio" name="hd-pay" value="cash" checked="" style="accent-color:var(--accent)"> 💵 Tiền mặt
           </label>
           <label style="display:flex;align-items:center;gap:5px;font-size:12px;cursor:pointer;">
             <input type="radio" name="hd-pay" value="bank" style="accent-color:var(--blue)"> 🏦 Chuyển khoản
@@ -1643,8 +1741,7 @@ tr:hover td{background:rgba(255,255,255,.02);}
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px;">
       <div class="sec-title" style="margin-bottom:0">📋 Lịch sử hóa đơn</div>
       <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
-        <input type="date" id="hd-hist-date" onchange="renderInvoiceHistory()"
-          style="background:var(--surface2);border:1px solid var(--border);border-radius:7px;padding:5px 10px;color:var(--text);font-size:12px;font-family:inherit;outline:none;">
+        <input type="date" id="hd-hist-date" onchange="renderInvoiceHistory()" style="background:var(--surface2);border:1px solid var(--border);border-radius:7px;padding:5px 10px;color:var(--text);font-size:12px;font-family:inherit;outline:none;">
         <button class="btn btn-ghost btn-sm" onclick="document.getElementById('hd-hist-date').value='';renderInvoiceHistory()">Tất cả</button>
         <span id="hd-hist-summary" style="font-size:12px;color:var(--muted);"></span>
       </div>
@@ -1970,9 +2067,22 @@ tr:hover td{background:rgba(255,255,255,.02);}
     </div>
 
     <div class="pos-section-hdr" id="pos-table-section-hdr">Chọn bàn</div>
-    <div class="pos-table-grid" id="pos-table-grid">
-      <!-- rendered by JS -->
-    </div>
+    <div class="pos-table-grid" id="pos-table-grid"><div class="pos-table-btn empty" onclick="posSelectTable(1)">
+      <div class="tb-num">Bàn 1</div>
+      <div class="tb-status">🟢 Trống</div>
+    </div><div class="pos-table-btn empty" onclick="posSelectTable(2)">
+      <div class="tb-num">Bàn 2</div>
+      <div class="tb-status">🟢 Trống</div>
+    </div><div class="pos-table-btn empty" onclick="posSelectTable(3)">
+      <div class="tb-num">Bàn 3</div>
+      <div class="tb-status">🟢 Trống</div>
+    </div><div class="pos-table-btn empty" onclick="posSelectTable(4)">
+      <div class="tb-num">Bàn 4</div>
+      <div class="tb-status">🟢 Trống</div>
+    </div><div class="pos-table-btn empty" onclick="posSelectTable(5)">
+      <div class="tb-num">Bàn 5</div>
+      <div class="tb-status">🟢 Trống</div>
+    </div></div>
     <!-- Customer form for takeaway/delivery -->
     <div id="pos-cust-form" style="display:none;padding:8px;overflow-y:auto;flex:1;"></div>
   </div>
@@ -1986,16 +2096,11 @@ tr:hover td{background:rgba(255,255,255,.02);}
     <div class="pos-search-bar">
       <div class="pos-search-wrap2" style="position:relative;">
         <span class="pos-search-icon2">🔍</span>
-        <input class="pos-search-inp" id="pos-search-inp" type="text"
-          placeholder="Tìm: ts, scl, dgl, nem, khoai..." 
-          oninput="posSearch(this.value)" onkeydown="posSearchKey(event)"
-          autocomplete="off" spellcheck="false">
+        <input class="pos-search-inp" id="pos-search-inp" type="text" placeholder="Tìm: ts, scl, dgl, nem, khoai..." oninput="posSearch(this.value)" onkeydown="posSearchKey(event)" autocomplete="off" spellcheck="false">
         <div class="pos-sr" id="pos-sr"></div>
       </div>
     </div>
-    <div class="pos-menu-area" id="pos-menu-area">
-      <!-- rendered by JS -->
-    </div>
+    <div class="pos-menu-area" id="pos-menu-area"><div class="pos-cat-hdr" onclick="posToggleCat('psc-0')"><span>🍗 Gà</span><span class="pos-cat-arrow" id="arr-psc-0">▼</span></div><div id="psc-0" class="pos-items-wrap" style="overflow:hidden;"><div class="pos-items-grid"><div class="pos-item " onclick="posAddItem(&quot;Đùi gà lớn&quot;,35000)"><div class="pi-name">Đùi gà lớn</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Đùi gà nhỏ&quot;,30000)"><div class="pi-name">Đùi gà nhỏ</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Cánh gà lớn&quot;,30000)"><div class="pi-name">Cánh gà lớn</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Cánh gà nhỏ&quot;,25000)"><div class="pi-name">Cánh gà nhỏ</div><div class="pi-price">25.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Xôi gà nấm&quot;,10000)"><div class="pi-name">Xôi gà nấm</div><div class="pi-price">10.000đ</div></div></div></div><div class="pos-cat-hdr" onclick="posToggleCat('psc-1')"><span>🧋 Trà sữa 25k</span><span class="pos-cat-arrow" id="arr-psc-1">▼</span></div><div id="psc-1" class="pos-items-wrap" style="overflow:hidden;"><div class="pos-items-grid"><div class="pos-item " onclick="posAddItem(&quot;Trà sữa truyền thống M&quot;,25000)"><div class="pi-name">Trà sữa truyền thống M</div><div class="pi-price">25.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà sữa truyền thống L&quot;,30000)"><div class="pi-name">Trà sữa truyền thống L</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà sữa Trân châu ĐĐ M&quot;,25000)"><div class="pi-name">Trà sữa Trân châu ĐĐ M</div><div class="pi-price">25.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà sữa Trân châu ĐĐ L&quot;,30000)"><div class="pi-name">Trà sữa Trân châu ĐĐ L</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà sữa Matcha M&quot;,25000)"><div class="pi-name">Trà sữa Matcha M</div><div class="pi-price">25.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà sữa Matcha L&quot;,30000)"><div class="pi-name">Trà sữa Matcha L</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà sữa Khoai môn M&quot;,25000)"><div class="pi-name">Trà sữa Khoai môn M</div><div class="pi-price">25.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà sữa Khoai môn L&quot;,30000)"><div class="pi-name">Trà sữa Khoai môn L</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà sữa Socola M&quot;,25000)"><div class="pi-name">Trà sữa Socola M</div><div class="pi-price">25.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà sữa Socola L&quot;,30000)"><div class="pi-name">Trà sữa Socola L</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà sữa Dâu M&quot;,25000)"><div class="pi-name">Trà sữa Dâu M</div><div class="pi-price">25.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà sữa Dâu L&quot;,30000)"><div class="pi-name">Trà sữa Dâu L</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà sữa Bạc hà M&quot;,25000)"><div class="pi-name">Trà sữa Bạc hà M</div><div class="pi-price">25.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà sữa Bạc hà L&quot;,30000)"><div class="pi-name">Trà sữa Bạc hà L</div><div class="pi-price">30.000đ</div></div></div></div><div class="pos-cat-hdr" onclick="posToggleCat('psc-2')"><span>🧋 Trà sữa 30k</span><span class="pos-cat-arrow" id="arr-psc-2">▼</span></div><div id="psc-2" class="pos-items-wrap" style="overflow:hidden;"><div class="pos-items-grid"><div class="pos-item " onclick="posAddItem(&quot;Trà sữa Full Topping - Xô&quot;,55000)"><div class="pi-name">Trà sữa Full Topping - Xô</div><div class="pi-price">55.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà sữa Topping M&quot;,39000)"><div class="pi-name">Trà sữa Topping M</div><div class="pi-price">39.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà sữa Topping L&quot;,49000)"><div class="pi-name">Trà sữa Topping L</div><div class="pi-price">49.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà sữa kem trứng dừa nướng M&quot;,30000)"><div class="pi-name">Trà sữa kem trứng dừa nướng M</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà sữa kem trứng dừa nướng L&quot;,35000)"><div class="pi-name">Trà sữa kem trứng dừa nướng L</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà sữa kem cheese M&quot;,30000)"><div class="pi-name">Trà sữa kem cheese M</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà sữa kem cheese L&quot;,35000)"><div class="pi-name">Trà sữa kem cheese L</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà sữa kem dẻo matcha M&quot;,30000)"><div class="pi-name">Trà sữa kem dẻo matcha M</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà sữa kem dẻo matcha L&quot;,35000)"><div class="pi-name">Trà sữa kem dẻo matcha L</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà sữa khoai môn kem cheese M&quot;,30000)"><div class="pi-name">Trà sữa khoai môn kem cheese M</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà sữa khoai môn kem cheese L&quot;,35000)"><div class="pi-name">Trà sữa khoai môn kem cheese L</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà sữa sốt khoai môn M&quot;,30000)"><div class="pi-name">Trà sữa sốt khoai môn M</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà sữa sốt khoai môn L&quot;,35000)"><div class="pi-name">Trà sữa sốt khoai môn L</div><div class="pi-price">35.000đ</div></div></div></div><div class="pos-cat-hdr" onclick="posToggleCat('psc-3')"><span>🥛 Sữa tươi &amp; Latte</span><span class="pos-cat-arrow" id="arr-psc-3">▼</span></div><div id="psc-3" class="pos-items-wrap" style="overflow:hidden;"><div class="pos-items-grid"><div class="pos-item " onclick="posAddItem(&quot;Sữa tươi kem trứng dừa M&quot;,35000)"><div class="pi-name">Sữa tươi kem trứng dừa M</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Sữa tươi kem trứng dừa L&quot;,40000)"><div class="pi-name">Sữa tươi kem trứng dừa L</div><div class="pi-price">40.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Sữa tươi trân châu ĐĐ M&quot;,30000)"><div class="pi-name">Sữa tươi trân châu ĐĐ M</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Sữa tươi trân châu ĐĐ L&quot;,35000)"><div class="pi-name">Sữa tươi trân châu ĐĐ L</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Matcha Latte kem trứng M&quot;,35000)"><div class="pi-name">Matcha Latte kem trứng M</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Matcha Latte kem trứng L&quot;,40000)"><div class="pi-name">Matcha Latte kem trứng L</div><div class="pi-price">40.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Matcha Latte kem dẻo M&quot;,35000)"><div class="pi-name">Matcha Latte kem dẻo M</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Matcha Latte kem dẻo L&quot;,40000)"><div class="pi-name">Matcha Latte kem dẻo L</div><div class="pi-price">40.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Matcha Latte kem muối M&quot;,35000)"><div class="pi-name">Matcha Latte kem muối M</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Matcha Latte kem muối L&quot;,40000)"><div class="pi-name">Matcha Latte kem muối L</div><div class="pi-price">40.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Matcha Latte M&quot;,30000)"><div class="pi-name">Matcha Latte M</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Matcha Latte L&quot;,35000)"><div class="pi-name">Matcha Latte L</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Khoai môn Latte M&quot;,30000)"><div class="pi-name">Khoai môn Latte M</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Khoai môn Latte L&quot;,35000)"><div class="pi-name">Khoai môn Latte L</div><div class="pi-price">35.000đ</div></div></div></div><div class="pos-cat-hdr" onclick="posToggleCat('psc-4')"><span>🫙 Sữa chua lắc</span><span class="pos-cat-arrow" id="arr-psc-4">▼</span></div><div id="psc-4" class="pos-items-wrap" style="overflow:hidden;"><div class="pos-items-grid"><div class="pos-item " onclick="posAddItem(&quot;Sữa chua lắc Việt quất M&quot;,30000)"><div class="pi-name">Sữa chua lắc Việt quất M</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Sữa chua lắc Việt quất L&quot;,35000)"><div class="pi-name">Sữa chua lắc Việt quất L</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Sữa chua lắc Xoài M&quot;,30000)"><div class="pi-name">Sữa chua lắc Xoài M</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Sữa chua lắc Xoài L&quot;,35000)"><div class="pi-name">Sữa chua lắc Xoài L</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Sữa chua lắc Dâu M&quot;,30000)"><div class="pi-name">Sữa chua lắc Dâu M</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Sữa chua lắc Dâu L&quot;,35000)"><div class="pi-name">Sữa chua lắc Dâu L</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Sữa chua lắc Đào M&quot;,30000)"><div class="pi-name">Sữa chua lắc Đào M</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Sữa chua lắc Đào L&quot;,35000)"><div class="pi-name">Sữa chua lắc Đào L</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Sữa chua lắc Chanh leo M&quot;,30000)"><div class="pi-name">Sữa chua lắc Chanh leo M</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Sữa chua lắc Chanh leo L&quot;,35000)"><div class="pi-name">Sữa chua lắc Chanh leo L</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Hoa quả dầm sữa chua M&quot;,30000)"><div class="pi-name">Hoa quả dầm sữa chua M</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Hoa quả dầm sữa chua L&quot;,35000)"><div class="pi-name">Hoa quả dầm sữa chua L</div><div class="pi-price">35.000đ</div></div></div></div><div class="pos-cat-hdr" onclick="posToggleCat('psc-5')"><span>🥤 Sinh tố</span><span class="pos-cat-arrow" id="arr-psc-5">▼</span></div><div id="psc-5" class="pos-items-wrap" style="overflow:hidden;"><div class="pos-items-grid"><div class="pos-item " onclick="posAddItem(&quot;Sinh tố Mãng cầu M&quot;,30000)"><div class="pi-name">Sinh tố Mãng cầu M</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Sinh tố Mãng cầu L&quot;,35000)"><div class="pi-name">Sinh tố Mãng cầu L</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Sinh tố Xoài M&quot;,30000)"><div class="pi-name">Sinh tố Xoài M</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Sinh tố Xoài L&quot;,35000)"><div class="pi-name">Sinh tố Xoài L</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Sinh tố Việt quất M&quot;,30000)"><div class="pi-name">Sinh tố Việt quất M</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Sinh tố Việt quất L&quot;,35000)"><div class="pi-name">Sinh tố Việt quất L</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Sinh tố Bơ M&quot;,30000)"><div class="pi-name">Sinh tố Bơ M</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Sinh tố Bơ L&quot;,35000)"><div class="pi-name">Sinh tố Bơ L</div><div class="pi-price">35.000đ</div></div></div></div><div class="pos-cat-hdr" onclick="posToggleCat('psc-6')"><span>🍹 Nước ép</span><span class="pos-cat-arrow" id="arr-psc-6">▼</span></div><div id="psc-6" class="pos-items-wrap" style="overflow:hidden;"><div class="pos-items-grid"><div class="pos-item " onclick="posAddItem(&quot;Nước ép Dưa hấu M&quot;,30000)"><div class="pi-name">Nước ép Dưa hấu M</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Nước ép Dưa hấu L&quot;,35000)"><div class="pi-name">Nước ép Dưa hấu L</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Nước ép Cam M&quot;,30000)"><div class="pi-name">Nước ép Cam M</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Nước ép Cam L&quot;,35000)"><div class="pi-name">Nước ép Cam L</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Nước ép Cà rốt M&quot;,30000)"><div class="pi-name">Nước ép Cà rốt M</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Nước ép Cà rốt L&quot;,35000)"><div class="pi-name">Nước ép Cà rốt L</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Nước ép Ổi M&quot;,30000)"><div class="pi-name">Nước ép Ổi M</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Nước ép Ổi L&quot;,35000)"><div class="pi-name">Nước ép Ổi L</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Nước ép Dứa M&quot;,30000)"><div class="pi-name">Nước ép Dứa M</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Nước ép Dứa L&quot;,35000)"><div class="pi-name">Nước ép Dứa L</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Nước ép Táo M&quot;,30000)"><div class="pi-name">Nước ép Táo M</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Nước ép Táo L&quot;,35000)"><div class="pi-name">Nước ép Táo L</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Nước ép Mix M&quot;,30000)"><div class="pi-name">Nước ép Mix M</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Nước ép Mix L&quot;,35000)"><div class="pi-name">Nước ép Mix L</div><div class="pi-price">35.000đ</div></div></div></div><div class="pos-cat-hdr" onclick="posToggleCat('psc-7')"><span>🍵 Trà trái cây</span><span class="pos-cat-arrow" id="arr-psc-7">▼</span></div><div id="psc-7" class="pos-items-wrap" style="overflow:hidden;"><div class="pos-items-grid"><div class="pos-item " onclick="posAddItem(&quot;Trà mãng cầu M&quot;,30000)"><div class="pi-name">Trà mãng cầu M</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà mãng cầu L&quot;,35000)"><div class="pi-name">Trà mãng cầu L</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà đào cam sả M&quot;,30000)"><div class="pi-name">Trà đào cam sả M</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà đào cam sả L&quot;,35000)"><div class="pi-name">Trà đào cam sả L</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà xoài đào kem cheese M&quot;,30000)"><div class="pi-name">Trà xoài đào kem cheese M</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà xoài đào kem cheese L&quot;,35000)"><div class="pi-name">Trà xoài đào kem cheese L</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà dâu M&quot;,25000)"><div class="pi-name">Trà dâu M</div><div class="pi-price">25.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà dâu L&quot;,30000)"><div class="pi-name">Trà dâu L</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà ổi hồng M&quot;,25000)"><div class="pi-name">Trà ổi hồng M</div><div class="pi-price">25.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà ổi hồng L&quot;,30000)"><div class="pi-name">Trà ổi hồng L</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà chanh leo M&quot;,25000)"><div class="pi-name">Trà chanh leo M</div><div class="pi-price">25.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà chanh leo L&quot;,30000)"><div class="pi-name">Trà chanh leo L</div><div class="pi-price">30.000đ</div></div></div></div><div class="pos-cat-hdr" onclick="posToggleCat('psc-8')"><span>🍋 Trà chanh &amp; Tắc</span><span class="pos-cat-arrow" id="arr-psc-8">▼</span></div><div id="psc-8" class="pos-items-wrap" style="overflow:hidden;"><div class="pos-items-grid"><div class="pos-item " onclick="posAddItem(&quot;Trà chanh M&quot;,10000)"><div class="pi-name">Trà chanh M</div><div class="pi-price">10.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà chanh L&quot;,15000)"><div class="pi-name">Trà chanh L</div><div class="pi-price">15.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà tắc M&quot;,10000)"><div class="pi-name">Trà tắc M</div><div class="pi-price">10.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trà tắc L&quot;,15000)"><div class="pi-name">Trà tắc L</div><div class="pi-price">15.000đ</div></div></div></div><div class="pos-cat-hdr" onclick="posToggleCat('psc-9')"><span>🧃 Soda</span><span class="pos-cat-arrow" id="arr-psc-9">▼</span></div><div id="psc-9" class="pos-items-wrap" style="overflow:hidden;"><div class="pos-items-grid"><div class="pos-item " onclick="posAddItem(&quot;Soda Dâu M&quot;,25000)"><div class="pi-name">Soda Dâu M</div><div class="pi-price">25.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Soda Dâu L&quot;,30000)"><div class="pi-name">Soda Dâu L</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Soda Bạc hà M&quot;,25000)"><div class="pi-name">Soda Bạc hà M</div><div class="pi-price">25.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Soda Bạc hà L&quot;,30000)"><div class="pi-name">Soda Bạc hà L</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Soda Việt quất M&quot;,25000)"><div class="pi-name">Soda Việt quất M</div><div class="pi-price">25.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Soda Việt quất L&quot;,30000)"><div class="pi-name">Soda Việt quất L</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Soda Blue M&quot;,25000)"><div class="pi-name">Soda Blue M</div><div class="pi-price">25.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Soda Blue L&quot;,30000)"><div class="pi-name">Soda Blue L</div><div class="pi-price">30.000đ</div></div></div></div><div class="pos-cat-hdr" onclick="posToggleCat('psc-10')"><span>🍡 Topping</span><span class="pos-cat-arrow" id="arr-psc-10">▼</span></div><div id="psc-10" class="pos-items-wrap" style="overflow:hidden;"><div class="pos-items-grid"><div class="pos-item " onclick="posAddItem(&quot;Kem cheese&quot;,5000)"><div class="pi-name">Kem cheese</div><div class="pi-price">5.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Kem muối&quot;,5000)"><div class="pi-name">Kem muối</div><div class="pi-price">5.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Kem trứng&quot;,5000)"><div class="pi-name">Kem trứng</div><div class="pi-price">5.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Kem dẻo&quot;,5000)"><div class="pi-name">Kem dẻo</div><div class="pi-price">5.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Pudding&quot;,8000)"><div class="pi-name">Pudding</div><div class="pi-price">8.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Trân châu trắng&quot;,5000)"><div class="pi-name">Trân châu trắng</div><div class="pi-price">5.000đ</div></div></div></div><div class="pos-cat-hdr" onclick="posToggleCat('psc-11')"><span>🍟 Chiên &amp; Ăn nhẹ</span><span class="pos-cat-arrow" id="arr-psc-11">▼</span></div><div id="psc-11" class="pos-items-wrap" style="overflow:hidden;"><div class="pos-items-grid"><div class="pos-item " onclick="posAddItem(&quot;Khoai tây chiên&quot;,30000)"><div class="pi-name">Khoai tây chiên</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Khoai tây lắc phomai&quot;,35000)"><div class="pi-name">Khoai tây lắc phomai</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Nem chua rán&quot;,35000)"><div class="pi-name">Nem chua rán</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Khoai lang kén&quot;,30000)"><div class="pi-name">Khoai lang kén</div><div class="pi-price">30.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Kimbap chiên&quot;,35000)"><div class="pi-name">Kimbap chiên</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Khoai môn lệ phố&quot;,12000)"><div class="pi-name">Khoai môn lệ phố</div><div class="pi-price">12.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Hotdog hoa tuyết&quot;,15000)"><div class="pi-name">Hotdog hoa tuyết</div><div class="pi-price">15.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Hotdog phomai&quot;,15000)"><div class="pi-name">Hotdog phomai</div><div class="pi-price">15.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Phomai que&quot;,8000)"><div class="pi-name">Phomai que</div><div class="pi-price">8.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Xúc xích lốc xoáy&quot;,10000)"><div class="pi-name">Xúc xích lốc xoáy</div><div class="pi-price">10.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Xúc xích&quot;,7000)"><div class="pi-name">Xúc xích</div><div class="pi-price">7.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Lạp xưởng&quot;,7000)"><div class="pi-name">Lạp xưởng</div><div class="pi-price">7.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Cá viên chiên&quot;,7000)"><div class="pi-name">Cá viên chiên</div><div class="pi-price">7.000đ</div></div></div></div><div class="pos-cat-hdr" onclick="posToggleCat('psc-12')"><span>🌶️ Mỳ cay</span><span class="pos-cat-arrow" id="arr-psc-12">▼</span></div><div id="psc-12" class="pos-items-wrap" style="overflow:hidden;"><div class="pos-items-grid"><div class="pos-item " onclick="posAddItem(&quot;Mỳ cay bò&quot;,40000)"><div class="pi-name">Mỳ cay bò</div><div class="pi-price">40.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Mỳ cay xúc xích&quot;,35000)"><div class="pi-name">Mỳ cay xúc xích</div><div class="pi-price">35.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Mỳ cay bò xúc xích&quot;,45000)"><div class="pi-name">Mỳ cay bò xúc xích</div><div class="pi-price">45.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Mỳ cay thập cẩm&quot;,50000)"><div class="pi-name">Mỳ cay thập cẩm</div><div class="pi-price">50.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Bánh Gối&quot;,10000)"><div class="pi-name">Bánh Gối</div><div class="pi-price">10.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Bánh tôm&quot;,15000)"><div class="pi-name">Bánh tôm</div><div class="pi-price">15.000đ</div></div></div></div><div class="pos-cat-hdr" onclick="posToggleCat('psc-13')"><span>🎁 Combo</span><span class="pos-cat-arrow" id="arr-psc-13">▼</span></div><div id="psc-13" class="pos-items-wrap" style="overflow:hidden;"><div class="pos-items-grid"><div class="pos-item " onclick="posAddItem(&quot;Combo AV1&quot;,59000)"><div class="pi-name">Combo AV1</div><div class="pi-price">59.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Combo AV2&quot;,109000)"><div class="pi-name">Combo AV2</div><div class="pi-price">109.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Combo AV3&quot;,159000)"><div class="pi-name">Combo AV3</div><div class="pi-price">159.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Combo Gà 1&quot;,45000)"><div class="pi-name">Combo Gà 1</div><div class="pi-price">45.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Combo Gà 2&quot;,109000)"><div class="pi-name">Combo Gà 2</div><div class="pi-price">109.000đ</div></div><div class="pos-item " onclick="posAddItem(&quot;Combo Gà 3&quot;,159000)"><div class="pi-name">Combo Gà 3</div><div class="pi-price">159.000đ</div></div></div></div></div>
   </div>
 
   <!-- ══ RIGHT: Cart ══ -->
@@ -2017,9 +2122,9 @@ tr:hover td{background:rgba(255,255,255,.02);}
     </div>
 
     <div class="pos-footer">
-      <button class="pfbtn pos-btn-order" id="pos-btn-order" onclick="posPlaceOrder()" disabled>🍽️ Gọi món</button>
-      <button class="pfbtn pos-btn-pay"   id="pos-btn-pay"   onclick="posPay()" disabled>💳 Thanh toán</button>
-      <button class="pfbtn pos-btn-reset" id="pos-btn-reset" onclick="posReset()" disabled>🔄</button>
+      <button class="pfbtn pos-btn-order" id="pos-btn-order" onclick="posPlaceOrder()" disabled="">🍽️ Gọi món</button>
+      <button class="pfbtn pos-btn-pay" id="pos-btn-pay" onclick="posPay()" disabled="">💳 Thanh toán</button>
+      <button class="pfbtn pos-btn-reset" id="pos-btn-reset" onclick="posReset()" disabled="">🔄</button>
     </div>
 
     <!-- Active orders -->
@@ -2092,9 +2197,7 @@ tr:hover td{background:rgba(255,255,255,.02);}
   <!-- Search -->
   <div class="pm-search">
     <span class="pm-search-icon">🔍</span>
-    <input class="pm-search-inp" id="pm-search" type="text"
-      placeholder="Tìm: ts, scl, nem, dgl, khoai..."
-      oninput="pmSearch(this.value)" autocomplete="off" spellcheck="false">
+    <input class="pm-search-inp" id="pm-search" type="text" placeholder="Tìm: ts, scl, nem, dgl, khoai..." oninput="pmSearch(this.value)" autocomplete="off" spellcheck="false">
   </div>
 
   <!-- Menu scrollable area -->
@@ -2138,8 +2241,8 @@ tr:hover td{background:rgba(255,255,255,.02);}
       <span class="pm-cart-total-val" id="pm-cart-total">0đ</span>
     </div>
     <div class="pm-cart-btns">
-      <button class="pm-btn-order" id="pm-btn-order" onclick="pmPlaceOrder()" disabled>🍽️ Gọi món</button>
-      <button class="pm-btn-pay" id="pm-btn-pay" onclick="pmPay()" disabled>💳 Thanh toán</button>
+      <button class="pm-btn-order" id="pm-btn-order" onclick="pmPlaceOrder()" disabled="">🍽️ Gọi món</button>
+      <button class="pm-btn-pay" id="pm-btn-pay" onclick="pmPay()" disabled="">💳 Thanh toán</button>
     </div>
   </div>
 </div>
@@ -2226,6 +2329,11 @@ function authGetUsers() {
 }
 function authSaveUsers(users) {
   localStorage.setItem('tni_users', JSON.stringify(users));
+  // Push users to cloud immediately so other devices get them
+  if (_cloudCfg && _cloudCfg.binId) {
+    clearTimeout(_syncTimer);
+    _syncTimer = setTimeout(cloudPush, 1000);
+  }
 }
 // Trusted device token: deviceId + session token stored in localStorage
 // Session valid for 30 days on trusted device, 8 hours otherwise
@@ -2450,7 +2558,14 @@ function authShowLoginScreen() {
           Đăng nhập
         </button>
       </div>
-      <div style="margin-top:16px;font-size:11px;color:var(--muted);text-align:center;">
+      <div style="margin-top:12px;">
+        <button onclick="authSyncThenLogin()" id="login-sync-btn"
+          style="width:100%;background:none;border:1px solid var(--border);border-radius:8px;padding:8px;font-size:12px;color:var(--muted);cursor:pointer;font-family:inherit;">
+          ☁️ Đồng bộ tài khoản từ cloud
+        </button>
+        <div id="login-sync-msg" style="font-size:11px;text-align:center;margin-top:5px;min-height:16px;color:var(--muted);"></div>
+      </div>
+      <div style="margin-top:10px;font-size:11px;color:var(--muted);text-align:center;">
         Tài khoản mặc định: admin@tiemnhain.vn / admin123
       </div>
     </div>`;
@@ -2495,6 +2610,42 @@ function authLogoutMenu() {
     }
   } else {
     authLogout();
+  }
+}
+
+async function authSyncThenLogin() {
+  const btn = document.getElementById('login-sync-btn');
+  const msg = document.getElementById('login-sync-msg');
+  if (btn) { btn.disabled = true; btn.textContent = '⏳ Đang đồng bộ...'; }
+  if (msg) { msg.textContent = ''; msg.style.color = 'var(--muted)'; }
+
+  if (!_cloudCfg || !_cloudCfg.binId || !_cloudCfg.apiKey) {
+    // Prompt for JSONBin config
+    const apiKey = prompt('Nhập JSONBin Master Key của quán:');
+    const binId  = prompt('Nhập Bin ID của quán:');
+    if (!apiKey || !binId) {
+      if (btn) { btn.disabled = false; btn.textContent = '☁️ Đồng bộ tài khoản từ cloud'; }
+      return;
+    }
+    _cloudCfg = { apiKey: apiKey.trim(), binId: binId.trim() };
+    localStorage.setItem(CLOUD_KEY, JSON.stringify(_cloudCfg));
+  }
+
+  try {
+    const changed = await cloudPull();
+    const users = authGetUsers();
+    const count = users.filter(u => u.email !== 'admin@tiemnhain.vn').length;
+    if (msg) {
+      msg.style.color = 'var(--green)';
+      msg.textContent = '✅ Đồng bộ xong — ' + users.length + ' tài khoản (' + count + ' nhân viên)';
+    }
+    if (btn) { btn.textContent = '✅ Đã đồng bộ'; }
+    setTimeout(() => {
+      if (btn) { btn.disabled = false; btn.textContent = '☁️ Đồng bộ tài khoản từ cloud'; }
+    }, 3000);
+  } catch (e) {
+    if (msg) { msg.style.color = 'var(--red)'; msg.textContent = '❌ Lỗi: ' + e.message; }
+    if (btn) { btn.disabled = false; btn.textContent = '☁️ Đồng bộ tài khoản từ cloud'; }
   }
 }
 
@@ -2745,7 +2896,7 @@ async function cloudPush() {
         'X-Master-Key': _cloudCfg.apiKey,
         'X-Bin-Versioning': 'false'
       },
-      body: JSON.stringify({ data: S, ts: Date.now() })
+      body: JSON.stringify({ data: S, users: authGetUsers(), ts: Date.now() })
     });
     if (!r.ok) throw new Error('HTTP ' + r.status);
     _cloudCfg.lastSync = new Date().toLocaleTimeString('vi-VN');
@@ -2768,12 +2919,24 @@ async function cloudPull() {
     const json = await r.json();
     const remote = json.record?.data;
     if (!remote || !remote.days) throw new Error('Dữ liệu cloud trống hoặc không hợp lệ');
-    // Merge: use remote if newer (more days or same days but remote has more data)
+    // Sync users from remote (critical: employees need user list to login)
+    const remoteUsers = json.record?.users;
+    if (remoteUsers && remoteUsers.length) {
+      const localUsers = authGetUsers();
+      // Merge: keep all users, remote wins on conflict (admin is source of truth)
+      const merged = [...remoteUsers];
+      localUsers.forEach(lu => {
+        if (!merged.find(ru => ru.email.toLowerCase() === lu.email.toLowerCase())) {
+          merged.push(lu); // keep any local-only users
+        }
+      });
+      authSaveUsers(merged);
+    }
+
+    // Merge S data: prefer whichever has more days; if equal prefer remote ts
     const localDays  = (S.days||[]).length;
     const remoteDays = (remote.days||[]).length;
     const remoteTs   = json.record?.ts || 0;
-    const localStr   = JSON.stringify(S);
-    // Always prefer whichever has more days; if equal prefer remote ts
     if (remoteDays > localDays || (remoteDays === localDays && remoteTs > (S._lastTs||0))) {
       Object.assign(S, remote);
       S._lastTs = remoteTs;
@@ -2856,7 +3019,7 @@ async function createNewBin() {
         'X-Master-Key': apiKey,
         'X-Bin-Name': 'TiemNhaIn'
       },
-      body: JSON.stringify({ data: S, ts: Date.now() })
+      body: JSON.stringify({ data: S, users: authGetUsers(), ts: Date.now() })
     });
     const json = await r.json();
     if (!r.ok) throw new Error(json.message || 'HTTP ' + r.status);
@@ -7459,18 +7622,28 @@ function ghRenderHistory() {
 // ============ BOOT ============
 authBootstrap();
 _session = authGetSession();
-if (!_session) {
-  // Try auto-login from trusted device token
-  if (authCheckTrustedDevice()) {
-    _session = authGetSession();
-    authApplyGuards();
-  } else {
-    authShowLoginScreen();
+
+// Pull cloud first so employees have latest user list & data
+(async () => {
+  if (_cloudCfg && _cloudCfg.binId && _cloudCfg.apiKey) {
+    try { await cloudPull(); } catch(e) {}
   }
-} else {
-  // Renew session expiry silently if still valid
-  if (_session.trusted) authSaveSession(_session, true);
-  authApplyGuards();
+  // Re-check session after pull (user list may have been updated)
+  if (!_session) {
+    if (authCheckTrustedDevice()) {
+      _session = authGetSession();
+      authApplyGuards();
+    } else {
+      authShowLoginScreen();
+    }
+  } else {
+    if (_session.trusted) authSaveSession(_session, true);
+    authApplyGuards();
+  }
+})();
+// Show login immediately (don't wait for pull) if no session at all
+if (!_session && !authCheckTrustedDevice()) {
+  authShowLoginScreen();
 }
 refreshDash();
 hdRenderMenu('');
@@ -7574,7 +7747,7 @@ hdRenderMenu('');
 
 
 <!-- ========== ADMIN ========== -->
-<div id="tab-admin" class="content">
+<div id="tab-admin" class="content active">
 <style>
 .admin-wrap { max-width:900px; margin:0 auto; }
 .admin-section { background:var(--surface); border:1px solid var(--border); border-radius:12px; margin-bottom:16px; overflow:hidden; }
@@ -7629,7 +7802,7 @@ hdRenderMenu('');
       <span>👥 Danh sách người dùng</span>
       <button class="pos-aorder-btn" onclick="adminRenderUsers()" style="font-size:11px;">⟳ Làm mới</button>
     </div>
-    <div id="admin-user-list"><div style="padding:16px;color:var(--muted);">Đang tải...</div></div>
+    <div id="admin-user-list"><div style="display:grid;grid-template-columns:1fr auto auto auto auto;gap:10px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--border);"><div><div style="font-weight:600;font-size:13px;">Admin</div><div style="font-size:11px;color:var(--muted);">admin@tiemnhain.vn · 👑 Chủ quán / Admin</div></div><span style="background:rgba(46,204,138,.12);color:var(--green);font-size:10px;padding:2px 7px;border-radius:4px;font-weight:700;">Hoạt động</span><button class="pos-aorder-btn primary" onclick="adminEditUser(0)">✏️ Sửa</button><button class="pos-aorder-btn" onclick="adminRevokeDevice('admin@tiemnhain.vn')" style="opacity:.35;">🔒 Xóa</button><button class="pos-aorder-btn danger" onclick="adminToggleUser(0)">🚫 Khóa</button></div><div style="display:grid;grid-template-columns:1fr auto auto auto auto;gap:10px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--border);"><div><div style="font-weight:600;font-size:13px;">Xuân Tây</div><div style="font-size:11px;color:var(--muted);">admin2@tiemnhain.vn · 👑 Chủ quán / Admin</div></div><span style="background:rgba(46,204,138,.12);color:var(--green);font-size:10px;padding:2px 7px;border-radius:4px;font-weight:700;">Hoạt động</span><button class="pos-aorder-btn primary" onclick="adminEditUser(1)">✏️ Sửa</button><button class="pos-aorder-btn" onclick="adminRevokeDevice('admin2@tiemnhain.vn')" style="opacity:.35;">🔒 Xóa</button><button class="pos-aorder-btn danger" onclick="adminToggleUser(1)">🚫 Khóa</button></div></div>
   </div>
 
   <!-- Permission reference -->
@@ -7669,8 +7842,39 @@ hdRenderMenu('');
 </div>
 
 <!-- Edit user modal -->
-<div id="admin-edit-modal">
-  <div id="admin-edit-box"></div>
+<div id="admin-edit-modal" class="">
+  <div id="admin-edit-box">
+    <div style="padding:14px 16px;border-bottom:1px solid var(--border);background:var(--surface2);display:flex;justify-content:space-between;align-items:center;">
+      <span style="font-weight:700;">✏️ Chỉnh sửa: Xuân Tây</span>
+      <button onclick="document.getElementById('admin-edit-modal').classList.remove('open')" style="background:none;border:none;color:var(--muted);cursor:pointer;font-size:18px;">✕</button>
+    </div>
+    <div style="padding:16px;display:flex;flex-direction:column;gap:12px;overflow-y:auto;">
+      <div>
+        <label style="font-size:11px;color:var(--muted);font-weight:600;">Tên hiển thị</label>
+        <input id="ae-name" class="pos-cust-inp" style="width:100%;margin-top:4px;box-sizing:border-box;" value="Xuân Tây">
+      </div>
+      <div>
+        <label style="font-size:11px;color:var(--muted);font-weight:600;">Role</label>
+        <select id="ae-role" class="pos-cust-inp" style="width:100%;margin-top:4px;" onchange="adminRoleChanged(1)">
+          <option value="admin" selected="">👑 Chủ quán / Admin</option><option value="order">🛒 Nhân viên Order</option><option value="kitchen">👨‍🍳 Bếp</option><option value="shipper">🛵 Shipper</option><option value="viewer">👁️ Xem báo cáo</option>
+          <option value="custom">⚙️ Tùy chỉnh</option>
+        </select>
+      </div>
+      <div>
+        <label style="font-size:11px;color:var(--muted);font-weight:600;">Mật khẩu mới (để trống = giữ nguyên)</label>
+        <input id="ae-pass" type="password" class="pos-cust-inp" style="width:100%;margin-top:4px;box-sizing:border-box;" placeholder="Nhập mật khẩu mới...">
+      </div>
+      <div>
+        <label style="font-size:11px;color:var(--muted);font-weight:600;display:block;margin-bottom:6px;">Quyền hạn</label>
+        <div id="ae-perms" style="display:grid;grid-template-columns:1fr 1fr;gap:5px;">
+          <label style="display:flex;align-items:center;gap:5px;font-size:11px;cursor:pointer;"><input type="checkbox" id="aep-order_create" value="order.create" checked="" style="width:14px;height:14px;">Tạo đơn</label><label style="display:flex;align-items:center;gap:5px;font-size:11px;cursor:pointer;"><input type="checkbox" id="aep-order_update" value="order.update" checked="" style="width:14px;height:14px;">Sửa đơn</label><label style="display:flex;align-items:center;gap:5px;font-size:11px;cursor:pointer;"><input type="checkbox" id="aep-order_pay" value="order.pay" checked="" style="width:14px;height:14px;">Thanh toán</label><label style="display:flex;align-items:center;gap:5px;font-size:11px;cursor:pointer;"><input type="checkbox" id="aep-order_print" value="order.print" checked="" style="width:14px;height:14px;">In phiếu</label><label style="display:flex;align-items:center;gap:5px;font-size:11px;cursor:pointer;"><input type="checkbox" id="aep-order_cancel" value="order.cancel" checked="" style="width:14px;height:14px;">Hủy đơn</label><label style="display:flex;align-items:center;gap:5px;font-size:11px;cursor:pointer;"><input type="checkbox" id="aep-kitchen_view" value="kitchen.view" checked="" style="width:14px;height:14px;">Xem bếp</label><label style="display:flex;align-items:center;gap:5px;font-size:11px;cursor:pointer;"><input type="checkbox" id="aep-kitchen_update" value="kitchen.update" checked="" style="width:14px;height:14px;">Cập nhật trạng thái bếp</label><label style="display:flex;align-items:center;gap:5px;font-size:11px;cursor:pointer;"><input type="checkbox" id="aep-delivery_view" value="delivery.view" checked="" style="width:14px;height:14px;">Xem giao hàng</label><label style="display:flex;align-items:center;gap:5px;font-size:11px;cursor:pointer;"><input type="checkbox" id="aep-delivery_update" value="delivery.update" checked="" style="width:14px;height:14px;">Cập nhật giao hàng</label><label style="display:flex;align-items:center;gap:5px;font-size:11px;cursor:pointer;"><input type="checkbox" id="aep-report_view" value="report.view" checked="" style="width:14px;height:14px;">Xem báo cáo</label><label style="display:flex;align-items:center;gap:5px;font-size:11px;cursor:pointer;"><input type="checkbox" id="aep-report_export" value="report.export" checked="" style="width:14px;height:14px;">Xuất báo cáo</label><label style="display:flex;align-items:center;gap:5px;font-size:11px;cursor:pointer;"><input type="checkbox" id="aep-data_entry" value="data.entry" checked="" style="width:14px;height:14px;">Nhập liệu hàng ngày</label><label style="display:flex;align-items:center;gap:5px;font-size:11px;cursor:pointer;"><input type="checkbox" id="aep-data_cost" value="data.cost" checked="" style="width:14px;height:14px;">Quản lý chi phí</label><label style="display:flex;align-items:center;gap:5px;font-size:11px;cursor:pointer;"><input type="checkbox" id="aep-admin_users" value="admin.users" checked="" style="width:14px;height:14px;">Quản lý người dùng</label><label style="display:flex;align-items:center;gap:5px;font-size:11px;cursor:pointer;"><input type="checkbox" id="aep-admin_settings" value="admin.settings" checked="" style="width:14px;height:14px;">Cài đặt hệ thống</label>
+        </div>
+      </div>
+    </div>
+    <div style="padding:12px 16px;border-top:1px solid var(--border);display:flex;gap:8px;justify-content:flex-end;">
+      <button class="btn btn-ghost btn-sm" onclick="document.getElementById('admin-edit-modal').classList.remove('open')">Hủy</button>
+      <button class="btn btn-primary btn-sm" onclick="adminSaveUser(1)">💾 Lưu</button>
+    </div></div>
 </div>
 
 
@@ -7704,11 +7908,9 @@ hdRenderMenu('');
         </div>
         <div>
           <label class="hd-cust-label">Personal Access Token (PAT)
-            <a href="https://github.com/settings/tokens/new?scopes=repo&description=TiemNhaIn" target="_blank"
-              style="color:var(--blue);font-size:10px;margin-left:6px;">→ Tạo token tại đây</a>
+            <a href="https://github.com/settings/tokens/new?scopes=repo&amp;description=TiemNhaIn" target="_blank" style="color:var(--blue);font-size:10px;margin-left:6px;">→ Tạo token tại đây</a>
           </label>
-          <input id="gh-token" type="password" class="pos-cust-inp" style="width:100%;margin-top:4px;box-sizing:border-box;" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx"
-            autocomplete="off" autocorrect="off" spellcheck="false">
+          <input id="gh-token" type="password" class="pos-cust-inp" style="width:100%;margin-top:4px;box-sizing:border-box;" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" autocomplete="off" autocorrect="off" spellcheck="false">
           <div style="font-size:10px;color:var(--muted);margin-top:3px;">🔒 Token chỉ lưu trên thiết bị này (localStorage), không gửi đi đâu ngoài api.github.com</div>
         </div>
         <div style="display:flex;gap:8px;align-items:center;">
@@ -7741,18 +7943,16 @@ hdRenderMenu('');
         </div>
 
         <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;">
-          <button class="btn btn-primary" id="gh-push-btn" onclick="ghPush()" style="min-width:140px;">
-            🚀 Push lên GitHub
-          </button>
+          <button class="btn btn-primary" id="gh-push-btn" onclick="ghPush()" style="min-width:140px;" disabled="">⏳ Đang push...</button>
           <button class="btn btn-ghost btn-sm" onclick="ghPreview()">👁️ Xem nội dung sẽ push</button>
         </div>
 
         <!-- Progress -->
-        <div id="gh-progress" style="display:none;margin-top:12px;">
+        <div id="gh-progress" style="display: block; margin-top: 12px;">
           <div style="background:var(--surface2);border-radius:8px;overflow:hidden;height:8px;margin-bottom:8px;">
-            <div id="gh-prog-bar" style="height:100%;background:var(--accent);width:0%;transition:width .4s;border-radius:8px;"></div>
+            <div id="gh-prog-bar" style="height: 100%; background: var(--accent); width: 20%; transition: width 0.4s; border-radius: 8px;"></div>
           </div>
-          <div id="gh-progress-text" style="font-size:12px;color:var(--muted);"></div>
+          <div id="gh-progress-text" style="font-size:12px;color:var(--muted);">Cập nhật version v1.0.1...</div>
         </div>
 
         <!-- Result -->
@@ -7850,7 +8050,7 @@ hdRenderMenu('');
       </div>
       <div class="tf-result info" id="tf-result-1" style="display:none;"></div>
       <div class="tf-actions">
-        <button class="tf-btn primary" onclick="tfStep1Next()" id="tf-s1-next" disabled>Tiếp tục →</button>
+        <button class="tf-btn primary" onclick="tfStep1Next()" id="tf-s1-next" disabled="">Tiếp tục →</button>
       </div>
     </div>
   </div>
@@ -7871,7 +8071,7 @@ hdRenderMenu('');
         <button class="tf-btn ghost" onclick="tfAddNote()">+ Ghi chú</button>
       </div>
       <div class="tf-actions" style="margin-top:12px;">
-        <button class="tf-btn green" onclick="tfStep2Next()" id="tf-s2-next" disabled>🍽️ Gọi món →</button>
+        <button class="tf-btn green" onclick="tfStep2Next()" id="tf-s2-next" disabled="">🍽️ Gọi món →</button>
         <button class="tf-btn ghost" onclick="tfClearCart()">🗑️ Xóa giỏ</button>
       </div>
     </div>
@@ -7881,7 +8081,7 @@ hdRenderMenu('');
   <div class="tf-step" id="tfs-3">
     <div class="tf-step-hdr">
       <div class="tf-step-num" id="tfn-3">3</div>
-      <span class="tf-step-title">Gọi món & In phiếu bếp (PNG)</span>
+      <span class="tf-step-title">Gọi món &amp; In phiếu bếp (PNG)</span>
       <span class="tf-step-status" id="tfst-3"></span>
     </div>
     <div class="tf-step-body" id="tfb-3">
@@ -7910,8 +8110,8 @@ hdRenderMenu('');
       <div class="tf-log" id="tf-log-4">Chờ thực hiện...</div>
       <div class="tf-actions" style="margin-top:12px;">
         <button class="tf-btn ghost" onclick="tfBepAdvance('preparing')" id="tf-bep-prep">👨‍🍳 Bắt đầu làm</button>
-        <button class="tf-btn ghost" onclick="tfBepAdvance('ready')" id="tf-bep-ready" disabled>✅ Xong — Sẵn sàng</button>
-        <button class="tf-btn green" onclick="tfStep4Next()" id="tf-bep-next" disabled>Tiến đến thanh toán →</button>
+        <button class="tf-btn ghost" onclick="tfBepAdvance('ready')" id="tf-bep-ready" disabled="">✅ Xong — Sẵn sàng</button>
+        <button class="tf-btn green" onclick="tfStep4Next()" id="tf-bep-next" disabled="">Tiến đến thanh toán →</button>
       </div>
     </div>
   </div>
@@ -7960,7 +8160,7 @@ hdRenderMenu('');
   <div class="tf-step" id="tfs-7">
     <div class="tf-step-hdr">
       <div class="tf-step-num" id="tfn-7">7</div>
-      <span class="tf-step-title">Reset bàn & Kết thúc đơn</span>
+      <span class="tf-step-title">Reset bàn &amp; Kết thúc đơn</span>
       <span class="tf-step-status" id="tfst-7"></span>
     </div>
     <div class="tf-step-body" id="tfb-7">
@@ -7983,7 +8183,7 @@ hdRenderMenu('');
 </div><!-- end tab-test -->
 
 <!-- SYNC MODAL -->
-<div id="sync-modal" style="display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.75);backdrop-filter:blur(4px);align-items:center;justify-content:center;">
+<div id="sync-modal" style="display: none; position: fixed; inset: 0px; z-index: 1000; background: rgba(0, 0, 0, 0.75); backdrop-filter: blur(4px); align-items: center; justify-content: center;">
   <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;width:min(500px,95vw);padding:0;overflow:hidden;">
     <div style="padding:16px 20px;border-bottom:1px solid var(--border);background:var(--surface2);display:flex;align-items:center;justify-content:space-between;">
       <span style="font-size:15px;font-weight:700;">☁️ Đồng bộ dữ liệu (JSONBin.io)</span>
@@ -8020,9 +8220,10 @@ hdRenderMenu('');
     </div>
     <div style="padding:12px 20px;border-top:1px solid var(--border);background:var(--surface2);display:flex;gap:10px;justify-content:flex-end;">
       <button class="btn btn-ghost btn-sm" onclick="closeSyncModal()">Hủy</button>
-      <button class="btn btn-primary btn-sm" onclick="saveSyncSettings()">💾 Lưu & Kết nối</button>
+      <button class="btn btn-primary btn-sm" onclick="saveSyncSettings()">💾 Lưu &amp; Kết nối</button>
     </div>
   </div>
 </div>
-</body>
-</html>
+
+
+<div id="pos-toast" style="position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: var(--surface); border-color: var(--green); border-top-style: ; border-top-width: ; border-right-style: ; border-right-width: ; border-bottom-style: ; border-bottom-width: ; border-left-style: ; border-left-width: ; border-image-source: ; border-image-slice: ; border-image-width: ; border-image-outset: ; border-image-repeat: ; border-radius: 10px; padding: 10px 20px; font-size: 13px; font-weight: 600; z-index: 9999; box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 20px; pointer-events: none; transition: opacity 0.3s; max-width: 90vw; text-align: center; color: var(--green); opacity: 0;">✅ Đã lưu thay đổi cho Xuân Tây</div></body></html>
